@@ -1,27 +1,25 @@
 import React from 'react';
-import merge from 'lodash.merge';
 
 function getDisplayName(WrappedComponent) {
     return `Geolocated(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
 }
 
 const geolocated = (config) => (WrappedComponent) => {
-    const defaultConfig = {
-        positionOptions: {
+    const activeConfig = {
+        positionOptions: (config && config.positionOptions) || {
             enableHighAccuracy: true,
             maximumAge: 0,
             timeout: Infinity,
         },
     };
-    const activeConfig = merge({}, defaultConfig, config);
 
     let result = class Geolocated extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
                 coords: null,
-                isGeolocationEnabled: false,
                 isGeolocationAvailable: Boolean(navigator && navigator.geolocation),
+                isGeolocationEnabled: false,
                 isGettingPosition: true,
                 positionError: null,
             };
@@ -31,21 +29,23 @@ const geolocated = (config) => (WrappedComponent) => {
         }
 
         onPositionError(positionError) {
-            this.setState(merge({}, this.state, {
+            this.setState({
                 coords: null,
+                isGeolocationAvailable: this.state.isGeolocationAvailable,
                 isGeolocationEnabled: false,
                 isGettingPosition: false,
                 positionError,
-            }))
+            });
         }
 
         onPositionSuccess(position) {
-           this.setState(merge({}, this.state, {
+            this.setState({
                 coords: position.coords,
+                isGeolocationAvailable: this.state.isGeolocationAvailable,
                 isGeolocationEnabled: true,
                 isGettingPosition: false,
                 positionError: null,
-            }));
+            });
         }
 
         componentDidMount() {
