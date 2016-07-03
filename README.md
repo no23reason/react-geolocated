@@ -5,7 +5,7 @@
 
 ```js
 import React from 'react';
-import {geolocated} from '../src/index';
+import {geolocated} from 'react-geolocated';
 
 class Demo extends React.Component {
   render() {
