@@ -10,7 +10,7 @@ module.exports = function karmaConfig (config) {
 
             // Reference: http://chaijs.com/api/bdd/
             // Use chai assertions
-            'chai'
+            'chai',
         ],
 
         reporters: [
@@ -20,7 +20,7 @@ module.exports = function karmaConfig (config) {
 
             // Reference: https://github.com/karma-runner/karma-coverage
             // Output code coverage files
-            'coverage'
+            'coverage',
         ],
 
         files: [
@@ -29,7 +29,7 @@ module.exports = function karmaConfig (config) {
             'node_modules/phantomjs-polyfill/bind-polyfill.js',
 
             // Grab all files in the tests directory that contain _test.
-            'tests/**/*_test.*'
+            'tests/**/*_test.*',
         ],
 
         preprocessors: {
@@ -37,12 +37,12 @@ module.exports = function karmaConfig (config) {
             // Reference: https://github.com/webpack/karma-webpack
             // Convert files with webpack and load sourcemaps
             'tests/**/*_test.*': ['webpack', 'sourcemap'],
-            'src/**/*.*': 'coverage'
+            'src/**/*.*': 'coverage',
         },
 
         browsers: [
             // Run tests using PhantomJS
-            'PhantomJS'
+            'PhantomJS',
         ],
 
         singleRun: true,
@@ -53,19 +53,19 @@ module.exports = function karmaConfig (config) {
               // generates ./coverage/lcov.info
               {
                 type: 'lcovonly',
-                subdir: '.'
+                subdir: '.',
               },
               // generates ./coverage/coverage-final.json
               {
                 type: 'json',
-                subdir: '.'
+                subdir: '.',
               },
               // generates ./coverage/index.html
               {
                 type: 'html',
-                subdir: '.'
-              }
-          ]
+                subdir: '.',
+              },
+          ],
         },
 
         // Test webpack config
@@ -73,7 +73,7 @@ module.exports = function karmaConfig (config) {
 
         // Hide webpack build information from output
         webpackMiddleware: {
-            noInfo: true
-        }
+            noInfo: true,
+        },
     });
 };
