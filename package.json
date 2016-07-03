@@ -22,6 +22,9 @@
     "postinstall": "node lib/post_install.js"
   },
   "main": "dist-modules",
+  "dependencies": {
+    "lodash.merge": "~4.4.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
