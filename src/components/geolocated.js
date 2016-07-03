@@ -21,7 +21,7 @@ const geolocated = (config) => (WrappedComponent) => {
             this.state = {
                 coords: null,
                 isGeolocationEnabled: false,
-                isGeolocationAvailable: Boolean(navigator.geolocation),
+                isGeolocationAvailable: Boolean(navigator && navigator.geolocation),
                 isGettingPosition: true,
                 positionError: null,
             };

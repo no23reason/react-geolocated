@@ -15,7 +15,7 @@ import pkg from './package.json';
 
 import js from 'highlight.js/lib/languages/javascript';
 
-const RENDER_UNIVERSAL = true;
+const RENDER_UNIVERSAL = false;
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = __dirname;
 const config = {
