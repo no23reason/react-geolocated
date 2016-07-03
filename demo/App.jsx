@@ -8,8 +8,6 @@ export default class App extends React.Component {
     return (
       <div>
         <Fork className="right" project={pkgInfo.user + '/' + pkgInfo.name} />
-        <p>Just demonstrating the awesomeness of this boilerplate here.</p>
-
         <Demo />
       </div>
     );
