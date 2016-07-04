@@ -62,8 +62,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// this should be the entry point to your library
-	module.exports = { geolocated: _geolocated2.default };
+	module.exports = { geolocated: _geolocated2.default, geoPropTypes: _geolocated.geoPropTypes };
 
 /***/ },
 /* 1 */
@@ -74,6 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.geoPropTypes = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -166,6 +166,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	exports.default = geolocated;
+	var geoPropTypes = exports.geoPropTypes = {
+	    coords: _react.PropTypes.shape({
+	        latitude: _react.PropTypes.number,
+	        longitude: _react.PropTypes.number,
+	        altitude: _react.PropTypes.number,
+	        accuracy: _react.PropTypes.number,
+	        altitudeAccuracy: _react.PropTypes.number,
+	        heading: _react.PropTypes.number,
+	        speed: _react.PropTypes.number
+	    }),
+	    isGeolocationAvailable: _react.PropTypes.bool,
+	    isGeolocationEnabled: _react.PropTypes.bool,
+	    isGettingPosition: _react.PropTypes.bool,
+	    positionError: _react.PropTypes.shape({
+	        code: _react.PropTypes.oneOf([1, 2, 3]),
+	        message: _react.PropTypes.string
+	    })
+	};
 
 /***/ },
 /* 2 */
