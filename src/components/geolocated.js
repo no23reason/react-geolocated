@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 function getDisplayName(WrappedComponent) {
     return `Geolocated(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
@@ -61,3 +61,22 @@ const geolocated = (config) => (WrappedComponent) => {
 };
 
 export default geolocated;
+
+export const geoPropTypes = {
+    coords: PropTypes.shape({
+        latitude: PropTypes.number,
+        longitude: PropTypes.number,
+        altitude: PropTypes.number,
+        accuracy: PropTypes.number,
+        altitudeAccuracy: PropTypes.number,
+        heading: PropTypes.number,
+        speed: PropTypes.number,
+    }),
+    isGeolocationAvailable: PropTypes.bool,
+    isGeolocationEnabled: PropTypes.bool,
+    isGettingPosition: PropTypes.bool,
+    positionError: PropTypes.shape({
+        code: PropTypes.oneOf([1, 2, 3]),
+        message: PropTypes.string,
+    }),
+};

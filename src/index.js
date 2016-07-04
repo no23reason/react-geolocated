@@ -1,4 +1,3 @@
 'use strict';
-import geolocated from './components/geolocated';
-// this should be the entry point to your library
-module.exports = {geolocated};
+import geolocated, {geoPropTypes} from './components/geolocated';
+module.exports = {geolocated, geoPropTypes};

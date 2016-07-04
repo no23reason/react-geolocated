@@ -49,10 +49,30 @@ The props passed to the wrapped component are:
     },
     isGeolocationAvailable, // boolean flag indicating that the browser supports the Geolocation API
     isGeolocationEnabled, // boolean flag indicating that the user has allowed the use of the Geolocation API
+    isGettingPosition, // boolean flag indicating that the position data are being retrieved
     positionError, // object with the error returned from the Geolocation API call
 }
 ```
 The `coords` prop is equivalent to the [Coordinates](https://developer.mozilla.org/en-US/docs/Web/API/Coordinates) object and the `positionError` is equivalent to the [PositionError](https://developer.mozilla.org/en-US/docs/Web/API/PositionError).
+
+### PropTypes
+Unfortunately, the `geolocated` HOC cannot add the prop types to the wrapped component directly, as the ESLint will not pick that up.  For this reason, prop types are exported as the `geoPropTypes` object.
+Using them is simple with `Object.assign` (or if you already depend on it, lodash [`merge`](https://lodash.com/docs#merge) function is useful as well), or if your environment supports it using the object spread syntax:
+```js
+import React from 'react';
+import {geolocated, geoPropTypes} from 'react-geolocated';
+
+class Demo extends React.Component {
+  // Same as the basic example
+}
+
+// Using Object.assign
+Demo.propTypes = Object.assign({}, Demo.propTypes, geoPropTypes);
+// Using ES6 object spread syntax
+Demo.propTypes = {...Demo.propTypes, ...geoPropTypes};
+
+export default geolocated()(Demo);
+```
 
 ## Configuration
 The `geolocated` function takes optional configuration parameter:
