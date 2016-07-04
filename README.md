@@ -57,7 +57,9 @@ The `coords` prop is equivalent to the [Coordinates](https://developer.mozilla.o
 
 ### PropTypes
 Unfortunately, the `geolocated` HOC cannot add the prop types to the wrapped component directly, as the ESLint will not pick that up.  For this reason, prop types are exported as the `geoPropTypes` object.
-Using them is simple with `Object.assign` (or if you already depend on it, lodash [`merge`](https://lodash.com/docs#merge) function is useful as well), or if your environment supports it using the object spread syntax:
+Using them is simple with [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+(or if you already depend on it, lodash [`merge`](https://lodash.com/docs#merge) function is useful as well),
+or, if your environment supports it, using the [object spread syntax](https://developer.mozilla.org/cs/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
 ```js
 import React from 'react';
 import {geolocated, geoPropTypes} from 'react-geolocated';
