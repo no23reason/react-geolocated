@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 function getDisplayName(WrappedComponent) {
     return `Geolocated(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
@@ -13,14 +13,13 @@ const geolocated = (config) => (WrappedComponent) => {
         },
     };
 
-    let result = class Geolocated extends React.Component {
+    let result = class Geolocated extends Component {
         constructor(props) {
             super(props);
             this.state = {
                 coords: null,
                 isGeolocationAvailable: Boolean(navigator && navigator.geolocation),
-                isGeolocationEnabled: false,
-                isGettingPosition: true,
+                isGeolocationEnabled: true, // be optimistic
                 positionError: null,
             };
 
@@ -33,7 +32,6 @@ const geolocated = (config) => (WrappedComponent) => {
                 coords: null,
                 isGeolocationAvailable: this.state.isGeolocationAvailable,
                 isGeolocationEnabled: false,
-                isGettingPosition: false,
                 positionError,
             });
         }
@@ -43,7 +41,6 @@ const geolocated = (config) => (WrappedComponent) => {
                 coords: position.coords,
                 isGeolocationAvailable: this.state.isGeolocationAvailable,
                 isGeolocationEnabled: true,
-                isGettingPosition: false,
                 positionError: null,
             });
         }
@@ -74,7 +71,6 @@ export const geoPropTypes = {
     }),
     isGeolocationAvailable: PropTypes.bool,
     isGeolocationEnabled: PropTypes.bool,
-    isGettingPosition: PropTypes.bool,
     positionError: PropTypes.shape({
         code: PropTypes.oneOf([1, 2, 3]),
         message: PropTypes.string,

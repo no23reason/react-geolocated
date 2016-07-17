@@ -1,6 +1,9 @@
 [![build status](https://secure.travis-ci.org/no23reason/react-geolocated.svg)](http://travis-ci.org/no23reason/react-geolocated) [![bitHound Score](https://www.bithound.io/github/no23reason/react-geolocated/badges/score.svg)](https://www.bithound.io/github/no23reason/react-geolocated) [![Dependency Status](https://david-dm.org/no23reason/react-geolocated.svg)](https://david-dm.org/no23reason/react-geolocated)
 # react-geolocated - React.js Higher-Order Component for using [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation)
 
+## Demo
+Basic demo can be found at the [demo page](https://no23reason.github.io/react-geolocated/).
+
 ## Basic Usage
 
 ```js
@@ -49,7 +52,6 @@ The props passed to the wrapped component are:
     },
     isGeolocationAvailable, // boolean flag indicating that the browser supports the Geolocation API
     isGeolocationEnabled, // boolean flag indicating that the user has allowed the use of the Geolocation API
-    isGettingPosition, // boolean flag indicating that the position data are being retrieved
     positionError, // object with the error returned from the Geolocation API call
 }
 ```
