@@ -11,6 +11,7 @@ const geolocated = (config) => (WrappedComponent) => {
             maximumAge: 0,
             timeout: Infinity,
         },
+        geolocationProvider: (config && config.geolocationProvider) || (typeof (navigator) !== 'undefined' && navigator.geolocation),
     };
 
     let result = class Geolocated extends Component {
@@ -18,7 +19,7 @@ const geolocated = (config) => (WrappedComponent) => {
             super(props);
             this.state = {
                 coords: null,
-                isGeolocationAvailable: Boolean(navigator && navigator.geolocation),
+                isGeolocationAvailable: Boolean(activeConfig.geolocationProvider),
                 isGeolocationEnabled: true, // be optimistic
                 positionError: null,
             };
@@ -46,7 +47,11 @@ const geolocated = (config) => (WrappedComponent) => {
         }
 
         componentDidMount() {
-            navigator.geolocation.getCurrentPosition(this.onPositionSuccess, this.onPositionError, activeConfig.positionOptions);
+            const {geolocationProvider} = activeConfig;
+            if (!geolocationProvider || !geolocationProvider.getCurrentPosition) {
+                throw new Error('The provided geolocation provider is invalid');
+            }
+            geolocationProvider.getCurrentPosition(this.onPositionSuccess, this.onPositionError, activeConfig.positionOptions);
         }
 
         render() {
