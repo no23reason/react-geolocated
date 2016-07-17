@@ -1,10 +1,20 @@
-[![build status](https://secure.travis-ci.org/no23reason/react-geolocated.svg)](http://travis-ci.org/no23reason/react-geolocated) [![bitHound Score](https://www.bithound.io/github/no23reason/react-geolocated/badges/score.svg)](https://www.bithound.io/github/no23reason/react-geolocated) [![Dependency Status](https://david-dm.org/no23reason/react-geolocated.svg)](https://david-dm.org/no23reason/react-geolocated)
+[![build status](https://secure.travis-ci.org/no23reason/react-geolocated.svg)](http://travis-ci.org/no23reason/react-geolocated)
+[![npm version](https://img.shields.io/npm/v/react-geolocated.svg)](https://www.npmjs.com/package/react-geolocated)
+[![bitHound Score](https://www.bithound.io/github/no23reason/react-geolocated/badges/score.svg)](https://www.bithound.io/github/no23reason/react-geolocated)
+[![Dependency Status](https://david-dm.org/no23reason/react-geolocated.svg)](https://david-dm.org/no23reason/react-geolocated)
 # react-geolocated - React.js Higher-Order Component for using [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation)
 
 ## Demo
 Basic demo can be found at the [demo page](https://no23reason.github.io/react-geolocated/).
 
 ## Basic Usage
+
+Install using `npm`:
+```bash
+npm install react-geolocated --save
+```
+
+Then using in your application like this:
 
 ```js
 import React from 'react';
