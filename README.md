@@ -10,7 +10,7 @@ Basic demo can be found at the [demo page](https://no23reason.github.io/react-ge
 ## Basic Usage
 
 Install using `npm`:
-```bash
+```js
 npm install react-geolocated --save
 ```
 
