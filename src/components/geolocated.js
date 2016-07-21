@@ -11,6 +11,7 @@ const geolocated = (config) => (WrappedComponent) => {
             maximumAge: 0,
             timeout: Infinity,
         },
+        userDecisionTimeout: (config && config.userDecisionTimeout) || null,
         geolocationProvider: (config && config.geolocationProvider) || (typeof (navigator) !== 'undefined' && navigator.geolocation),
     };
 
@@ -24,11 +25,25 @@ const geolocated = (config) => (WrappedComponent) => {
                 positionError: null,
             };
 
+            if (activeConfig.userDecisionTimeout) {
+                this.userDecisionTimeoutId = setTimeout(() => {
+                    this.onPositionError();
+                }, activeConfig.userDecisionTimeout);
+            }
+
             this.onPositionError = this.onPositionError.bind(this);
             this.onPositionSuccess = this.onPositionSuccess.bind(this);
+            this.cancelUserDecisionTimeout = this.cancelUserDecisionTimeout.bind(this);
+        }
+
+        cancelUserDecisionTimeout() {
+            if (this.userDecisionTimeoutId) {
+                clearTimeout(this.userDecisionTimeoutId);
+            }
         }
 
         onPositionError(positionError) {
+            this.cancelUserDecisionTimeout();
             this.setState({
                 coords: null,
                 isGeolocationAvailable: this.state.isGeolocationAvailable,
@@ -38,6 +53,7 @@ const geolocated = (config) => (WrappedComponent) => {
         }
 
         onPositionSuccess(position) {
+            this.cancelUserDecisionTimeout();
             this.setState({
                 coords: position.coords,
                 isGeolocationAvailable: this.state.isGeolocationAvailable,
@@ -52,6 +68,10 @@ const geolocated = (config) => (WrappedComponent) => {
                 throw new Error('The provided geolocation provider is invalid');
             }
             geolocationProvider.getCurrentPosition(this.onPositionSuccess, this.onPositionError, activeConfig.positionOptions);
+        }
+
+        componentWillUnmount() {
+            this.cancelUserDecisionTimeout();
         }
 
         render() {

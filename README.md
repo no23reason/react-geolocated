@@ -44,6 +44,7 @@ export default geolocated({
   positionOptions: {
     enableHighAccuracy: false,
   },
+  userDecisionTimeout: 5000
 })(Demo);
 ```
 
@@ -97,9 +98,17 @@ The `geolocated` function takes optional configuration parameter:
         maximumAge: 0,
         timeout: Infinity,
     },
+    userDecisionTimeout: null,
+    geolocationProvider: navigator.geolocation
 }
 ```
-The `positionOptions` object corresponds to the [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) of the Geolocation API. 
+The `positionOptions` object corresponds to the [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) of the Geolocation API.
+
+If set, the `userDecisionTimeout` determines how much time (in miliseconds) we give the user to make the decision whether to allow to share their location or not.
+In Firefox, if the user declines to use their location, the Geolocation API call does not end with an error.
+Therefore we want to fallback to the error state if the user declines and the API does not tell us.
+
+The `geolocationProvider` allows to specify alternative source of the geolocation API. This was added mainly for testing purposes, however feel free to use it if need be.
 
 ## Acknowledgements
 
