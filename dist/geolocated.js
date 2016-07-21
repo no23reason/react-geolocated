@@ -93,18 +93,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return 'Geolocated(' + (WrappedComponent.displayName || WrappedComponent.name || 'Component') + ')';
 	}
 	
-	var geolocated = function geolocated(config) {
-	    return function (WrappedComponent) {
-	        var activeConfig = {
-	            positionOptions: config && config.positionOptions || {
-	                enableHighAccuracy: true,
-	                maximumAge: 0,
-	                timeout: Infinity
-	            }
-	        };
+	var geolocated = function geolocated() {
+	    var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	
-	        var result = function (_React$Component) {
-	            _inherits(Geolocated, _React$Component);
+	    var _ref$positionOptions = _ref.positionOptions;
+	    var positionOptions = _ref$positionOptions === undefined ? {
+	        enableHighAccuracy: true,
+	        maximumAge: 0,
+	        timeout: Infinity
+	    } : _ref$positionOptions;
+	    var _ref$userDecisionTime = _ref.userDecisionTimeout;
+	    var userDecisionTimeout = _ref$userDecisionTime === undefined ? null : _ref$userDecisionTime;
+	    var _ref$geolocationProvi = _ref.geolocationProvider;
+	    var geolocationProvider = _ref$geolocationProvi === undefined ? typeof navigator !== 'undefined' && navigator.geolocation : _ref$geolocationProvi;
+	    return function (WrappedComponent) {
+	        var result = function (_Component) {
+	            _inherits(Geolocated, _Component);
 	
 	            function Geolocated(props) {
 	                _classCallCheck(this, Geolocated);
@@ -113,43 +117,64 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	                _this.state = {
 	                    coords: null,
-	                    isGeolocationAvailable: Boolean(navigator && navigator.geolocation),
-	                    isGeolocationEnabled: false,
-	                    isGettingPosition: true,
+	                    isGeolocationAvailable: Boolean(geolocationProvider),
+	                    isGeolocationEnabled: true, // be optimistic
 	                    positionError: null
 	                };
 	
+	                if (userDecisionTimeout) {
+	                    _this.userDecisionTimeoutId = setTimeout(function () {
+	                        _this.onPositionError();
+	                    }, userDecisionTimeout);
+	                }
+	
 	                _this.onPositionError = _this.onPositionError.bind(_this);
 	                _this.onPositionSuccess = _this.onPositionSuccess.bind(_this);
+	                _this.cancelUserDecisionTimeout = _this.cancelUserDecisionTimeout.bind(_this);
 	                return _this;
 	            }
 	
 	            _createClass(Geolocated, [{
+	                key: 'cancelUserDecisionTimeout',
+	                value: function cancelUserDecisionTimeout() {
+	                    if (this.userDecisionTimeoutId) {
+	                        clearTimeout(this.userDecisionTimeoutId);
+	                    }
+	                }
+	            }, {
 	                key: 'onPositionError',
 	                value: function onPositionError(positionError) {
+	                    this.cancelUserDecisionTimeout();
 	                    this.setState({
 	                        coords: null,
 	                        isGeolocationAvailable: this.state.isGeolocationAvailable,
 	                        isGeolocationEnabled: false,
-	                        isGettingPosition: false,
 	                        positionError: positionError
 	                    });
 	                }
 	            }, {
 	                key: 'onPositionSuccess',
 	                value: function onPositionSuccess(position) {
+	                    this.cancelUserDecisionTimeout();
 	                    this.setState({
 	                        coords: position.coords,
 	                        isGeolocationAvailable: this.state.isGeolocationAvailable,
 	                        isGeolocationEnabled: true,
-	                        isGettingPosition: false,
 	                        positionError: null
 	                    });
 	                }
 	            }, {
 	                key: 'componentDidMount',
 	                value: function componentDidMount() {
-	                    navigator.geolocation.getCurrentPosition(this.onPositionSuccess, this.onPositionError, activeConfig.positionOptions);
+	                    if (!geolocationProvider || !geolocationProvider.getCurrentPosition) {
+	                        throw new Error('The provided geolocation provider is invalid');
+	                    }
+	                    geolocationProvider.getCurrentPosition(this.onPositionSuccess, this.onPositionError, positionOptions);
+	                }
+	            }, {
+	                key: 'componentWillUnmount',
+	                value: function componentWillUnmount() {
+	                    this.cancelUserDecisionTimeout();
 	                }
 	            }, {
 	                key: 'render',
@@ -159,7 +184,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }]);
 	
 	            return Geolocated;
-	        }(_react2.default.Component);
+	        }(_react.Component);
 	        result.displayName = getDisplayName(WrappedComponent);
 	        return result;
 	    };
@@ -178,7 +203,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }),
 	    isGeolocationAvailable: _react.PropTypes.bool,
 	    isGeolocationEnabled: _react.PropTypes.bool,
-	    isGettingPosition: _react.PropTypes.bool,
 	    positionError: _react.PropTypes.shape({
 	        code: _react.PropTypes.oneOf([1, 2, 3]),
 	        message: _react.PropTypes.string
