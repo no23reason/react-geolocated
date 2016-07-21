@@ -4,31 +4,29 @@ function getDisplayName(WrappedComponent) {
     return `Geolocated(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
 }
 
-const geolocated = (config) => (WrappedComponent) => {
-    const activeConfig = {
-        positionOptions: (config && config.positionOptions) || {
-            enableHighAccuracy: true,
-            maximumAge: 0,
-            timeout: Infinity,
-        },
-        userDecisionTimeout: (config && config.userDecisionTimeout) || null,
-        geolocationProvider: (config && config.geolocationProvider) || (typeof (navigator) !== 'undefined' && navigator.geolocation),
-    };
-
+const geolocated = ({
+    positionOptions = {
+        enableHighAccuracy: true,
+        maximumAge: 0,
+        timeout: Infinity,
+    },
+    userDecisionTimeout = null,
+    geolocationProvider = (typeof (navigator) !== 'undefined' && navigator.geolocation),
+} = {}) => (WrappedComponent) => {
     let result = class Geolocated extends Component {
         constructor(props) {
             super(props);
             this.state = {
                 coords: null,
-                isGeolocationAvailable: Boolean(activeConfig.geolocationProvider),
+                isGeolocationAvailable: Boolean(geolocationProvider),
                 isGeolocationEnabled: true, // be optimistic
                 positionError: null,
             };
 
-            if (activeConfig.userDecisionTimeout) {
+            if (userDecisionTimeout) {
                 this.userDecisionTimeoutId = setTimeout(() => {
                     this.onPositionError();
-                }, activeConfig.userDecisionTimeout);
+                }, userDecisionTimeout);
             }
 
             this.onPositionError = this.onPositionError.bind(this);
@@ -63,11 +61,10 @@ const geolocated = (config) => (WrappedComponent) => {
         }
 
         componentDidMount() {
-            const {geolocationProvider} = activeConfig;
             if (!geolocationProvider || !geolocationProvider.getCurrentPosition) {
                 throw new Error('The provided geolocation provider is invalid');
             }
-            geolocationProvider.getCurrentPosition(this.onPositionSuccess, this.onPositionError, activeConfig.positionOptions);
+            geolocationProvider.getCurrentPosition(this.onPositionSuccess, this.onPositionError, positionOptions);
         }
 
         componentWillUnmount() {
