@@ -3,7 +3,7 @@
   "description": "React.js Higher-Order Component for using Geolocation API",
   "author": "Dan Homola",
   "user": "no23reason",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "karma start",
