@@ -2,6 +2,7 @@
 
 ### New features
   * Added the `userDecisionTimeout` config option
+
 ### Enhancements
   * Made the default config values declaration simpler
   * Improved the build process by cleaning the output directory first
@@ -11,6 +12,7 @@
 ### New features
   * Removed the `isGettingLocation` prop as it was misleading
   * The `isLoactionEnabled` is now optimistically initially set to `true`
+
 ### Enhancements
   * Upgraded ESLint to v 3.1.0 -> dropped support for Node.js of versions < 4
 
