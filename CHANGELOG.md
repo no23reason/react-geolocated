@@ -1,3 +1,8 @@
+## 0.4.0 (24th of July 2016)
+
+### New features
+  * Added TypeScript type definitions
+
 ## 0.3.0 (21st of July 2016)
 
 ### New features

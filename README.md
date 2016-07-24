@@ -14,7 +14,7 @@ Install using `npm`:
 npm install react-geolocated --save
 ```
 
-Then using in your application like this:
+Then use in your application like this:
 
 ```js
 import React from 'react';
@@ -109,6 +109,23 @@ In Firefox, if the user declines to use their location, the Geolocation API call
 Therefore we want to fallback to the error state if the user declines and the API does not tell us.
 
 The `geolocationProvider` allows to specify alternative source of the geolocation API. This was added mainly for testing purposes, however feel free to use it if need be.
+
+## TypeScript
+This project ships with type definitions for TypeScript provided. You can use them in your TypeScript files like this:
+```js
+import * as React from 'react';
+import {GeolocatedProps, geolocated} from 'react-geolocated';
+
+interface IDemoProps extends GeolocatedProps {}
+
+class Demo extends React.Component<IDemoProps, {}> {
+  render(): React.ReactElement<{}> {
+    return <div>lattitude: {this.props.coords && this.props.coords.latitude}</div>;
+  }
+}
+
+export default geolocated()(Demo);
+```
 
 ## Acknowledgements
 
