@@ -7,10 +7,10 @@ interface GeolocatedConfig {
 }
 
 interface GeolocatedProps {
-  coords: Coordinates;
-  isGeolocationAvailable: boolean;
-  isGeolocationEnabled: boolean;
-  positionError: PositionError;
+  coords?: Coordinates;
+  isGeolocationAvailable?: boolean;
+  isGeolocationEnabled?: boolean;
+  positionError?: PositionError;
 }
 
 declare class ElementClass extends React.Component<GeolocatedProps, any> { }

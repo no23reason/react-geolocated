@@ -1,3 +1,9 @@
+## 0.4.1 (25th of July 2016)
+
+### Bugifixes
+  * Made the props in TypeScript optional
+  * Added npm-debug.log to .gitignore
+
 ## 0.4.0 (24th of July 2016)
 
 ### New features
