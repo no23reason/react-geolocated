@@ -129,6 +129,8 @@ export default geolocated()(Demo);
 
 ## Acknowledgements
 
+Many thanks belong to [@mcumpl](https://github.com/mcumpl) for the original idea for this as well as many suggestions and comments.
+
 This project uses the [react-component-boilerplate](https://github.com/survivejs/react-component-boilerplate).
 
 ## License
