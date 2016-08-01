@@ -57,7 +57,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
-    "mocha": "^2.5.3",
+    "mocha": "^3.0.0",
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "^2.1.7",
     "purecss": "^0.6.0",
