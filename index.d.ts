@@ -15,7 +15,7 @@ interface GeolocatedProps {
 
 declare class ElementClass extends React.Component<GeolocatedProps, any> { }
 declare interface ClassDecorator {
-  <T extends (typeof ElementClass)>(component: T): T
+  <T extends (typeof ElementClass)>(component: T): T;
 }
 
 export function geolocated(config?: GeolocatedConfig): ClassDecorator;
