@@ -3,4 +3,5 @@ node_js:
   - "4.4"
   - "5.9"
   - "6.3"
-script: npm run test:coveralls
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
