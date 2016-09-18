@@ -21,7 +21,7 @@ const geolocated = ({
                 isGeolocationAvailable: Boolean(geolocationProvider),
                 isGeolocationEnabled: true, // be optimistic
                 positionError: null,
-                ...props
+                ...props,
             };
 
             if (userDecisionTimeout) {
