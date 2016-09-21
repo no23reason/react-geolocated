@@ -10,5 +10,5 @@
       ]
     }
   },
-  "plugins": ["istanbul", "transform-es2015-destructuring", "transform-object-rest-spread"]
+  "plugins": ["transform-es2015-destructuring", "transform-object-rest-spread"]
 }
