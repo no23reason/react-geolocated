@@ -6,7 +6,7 @@
   "version": "0.4.1",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:tdd": "jest --watch",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
     "test:ts": "cd tests/typescript && typings install && tsc && rimraf out && rimraf typings",
