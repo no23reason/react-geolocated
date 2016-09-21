@@ -4,5 +4,5 @@ node_js:
   - "5.9"
   - "6.3"
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
   

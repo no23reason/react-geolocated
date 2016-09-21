@@ -1,0 +1,35 @@
+exports[`Geolocated should cancel user decision timeout on success 1`] = `
+<div>
+  50
+  , 
+  20
+</div>
+`;
+
+exports[`Geolocated should cancel user decision timeout on success 2`] = `
+<div>
+  50
+  , 
+  20
+</div>
+`;
+
+exports[`Geolocated should inject the location 1`] = `
+<div>
+  50
+  , 
+  20
+</div>
+`;
+
+exports[`Geolocated should timeout if user decision timeout is specified 1`] = `
+<div>
+  , 
+</div>
+`;
+
+exports[`Geolocated should timeout if user decision timeout is specified 2`] = `
+<div>
+  Geolocation NOT enabled
+</div>
+`;
