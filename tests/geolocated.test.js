@@ -1,13 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import renderer from 'react-test-renderer';
 
 import geolocated, {geoPropTypes} from '../src/components/geolocated';
 
 class SimpleComponent extends Component {
   render() {
-    const {coords, isGeolocationEnabled} = this.props;
+    const {coords, isGeolocationEnabled, message} = this.props;
     if (isGeolocationEnabled) {
       return (<div>
+        {message && `${message}: `}
         {coords && coords.latitude}, {coords && coords.longitude}
       </div>);
     } else {
@@ -16,6 +17,9 @@ class SimpleComponent extends Component {
   }
 }
 
+SimpleComponent.propTypes = {
+  message: PropTypes.string,
+};
 SimpleComponent.propTypes = {...SimpleComponent.propTypes, ...geoPropTypes };
 
 const mockSuccessfulGeolocationProvider = {
@@ -54,6 +58,16 @@ describe('Geolocated', () => {
     })(SimpleComponent);
 
     expect(() => renderer.create(<Wrapped />)).toThrow();
+  });
+
+  it('should pass the props', () => {
+    const Wrapped = geolocated({
+      geolocationProvider: mockSuccessfulGeolocationProvider,
+    })(SimpleComponent);
+
+    const component = renderer.create(<Wrapped message="Test message" />);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should timeout if user decision timeout is specified', () => {

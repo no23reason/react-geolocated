@@ -72,7 +72,7 @@ const geolocated = ({
         }
 
         render() {
-            return <WrappedComponent {...this.state} />;
+            return <WrappedComponent {...this.state} {...this.props} />;
         }
     };
     result.displayName = getDisplayName(WrappedComponent);
