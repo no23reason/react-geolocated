@@ -1,6 +1,16 @@
+## 0.5.0 (24th of September 2016)
+
+### Bugfixes
+  * Pass props to child component properly (shout out to [@RishabhJain96](https://github.com/RishabhJain96) for pointing this out)
+
+### Enhancements
+  * Migrated tests to [jest](https://github.com/facebook/jest)
+  * Added code coverage reporting via [codecov](https://codecov.io/)
+  * Added tests for the TypeScript typings
+
 ## 0.4.1 (25th of July 2016)
 
-### Bugifixes
+### Bugfixes
   * Made the props in TypeScript optional
   * Added npm-debug.log to .gitignore
 
