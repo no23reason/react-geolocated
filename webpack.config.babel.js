@@ -98,7 +98,7 @@ if (TARGET === 'start') {
       }),
       new HtmlWebpackPlugin({
         title: pkg.name + ' - ' + pkg.description,
-        template: 'lib/index_template.ejs',
+        template: 'docs-resources/index_template.ejs',
 
         // Context for the template
         name: pkg.name,
@@ -190,7 +190,7 @@ if (TARGET === 'make-docs') {
       }),
       new HtmlWebpackPlugin({
         title: pkg.name + ' - ' + pkg.description,
-        template: 'lib/index_template.ejs',
+        template: 'docs-resources/index_template.ejs',
 
         // Context for the template
         name: pkg.name,
