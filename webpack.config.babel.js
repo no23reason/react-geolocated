@@ -21,6 +21,7 @@ const ROOT_PATH = __dirname;
 const config = {
   paths: {
     readme: path.join(ROOT_PATH, 'README.md'),
+    docs: path.join(ROOT_PATH, 'docs-resources', 'DOCS.md'),
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
     demo: path.join(ROOT_PATH, 'demo'),
@@ -97,7 +98,7 @@ if (TARGET === 'start') {
         'process.env.NODE_ENV': '"development"',
       }),
       new HtmlWebpackPlugin({
-        title: pkg.name + ' - ' + pkg.description,
+        title: pkg.name + ' — ' + pkg.description,
         template: 'docs-resources/index_template.ejs',
 
         // Context for the template
@@ -107,7 +108,7 @@ if (TARGET === 'start') {
       }),
       new HtmlWebpackRemarkPlugin({
         key: 'documentation',
-        file: config.paths.readme,
+        file: config.paths.docs,
         languages: {
           js,
         },
@@ -189,7 +190,7 @@ if (TARGET === 'make-docs') {
         'process.env.NODE_ENV': '"production"',
       }),
       new HtmlWebpackPlugin({
-        title: pkg.name + ' - ' + pkg.description,
+        title: pkg.name + ' — ' + pkg.description,
         template: 'docs-resources/index_template.ejs',
 
         // Context for the template
@@ -199,7 +200,7 @@ if (TARGET === 'make-docs') {
       }),
       new HtmlWebpackRemarkPlugin({
         key: 'documentation',
-        file: config.paths.readme,
+        file: config.paths.docs,
         languages: {
           js,
         },
