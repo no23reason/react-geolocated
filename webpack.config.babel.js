@@ -165,7 +165,7 @@ NamedModulesPlugin.prototype.apply = function(compiler) {
   }.bind(this));
 };
 
-if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
+if (TARGET === 'make-docs') {
   module.exports = merge(demoCommon, {
     entry: {
       app: config.paths.demo,
@@ -175,12 +175,12 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       style: STYLE_ENTRIES,
     },
     output: {
-      path: './gh-pages',
+      path: './docs',
       filename: '[name].[chunkhash].js',
       chunkFilename: '[chunkhash].js',
     },
     plugins: [
-      new CleanPlugin(['gh-pages'], {
+      new CleanPlugin(['docs'], {
         verbose: false,
       }),
       new ExtractTextPlugin('[name].[chunkhash].css'),
