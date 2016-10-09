@@ -43,7 +43,6 @@ header .description {
 
 .github-fork-ribbon {
     position: fixed;
-
     letter-spacing: 0.01em;
 }
 
@@ -81,11 +80,32 @@ article .description h2 {
 }
 
 article .demonstration {
-    font-size: large;
+    font-size: larger;
     margin: 2em;
     text-align: center;
 }
 
+article .demonstration .coordinate {
+    font-size: x-large;
+}
+
 .github-fork-ribbon {
-    background-color: #000;
+    background-color: #333;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td, th {
+    padding: 0.2em;
+    text-align: center;
+}
+
+td:not(:last-child), th:not(:last-child) {
+    border-right: 1px #333 solid;
+}
+
+th {
+    border-bottom: 1px #333 solid;
 }

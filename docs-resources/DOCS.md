@@ -3,6 +3,11 @@
   * Lightweight — the minified version has only 5 kB in size
   * Supports TypeScript — the typings are included in the project
 
+### Browser support
+|  Chrome &ge; 5  |  Firefox &ge; 3.5  |  Internet Explorer &ge; 9  |  Opera &ge; 10.60 |  Safari &ge; 5  |
+|:-:|:-:|:-:|:-:|:-:|
+|  ![Chrome logo](https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_64x64.png)  |  ![Firefox logo](https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_64x64.png)  |  ![Internet Explorer logo](https://raw.githubusercontent.com/alrra/browser-logos/master/internet-explorer/internet-explorer_64x64.png)  |  ![Opera logo](https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_64x64.png)  |  ![Safari logo](https://raw.githubusercontent.com/alrra/browser-logos/master/safari/safari_64x64.png)  |
+
 ### How to get it
 It's on [npm](https://www.npmjs.com/package/react-geolocated), just do
 ```js
