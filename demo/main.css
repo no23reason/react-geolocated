@@ -1,7 +1,7 @@
 /* TODO: insert main styles of your demo here */
 
 body {
-    background: #008ed4;
+    /*background: #008ed4;*/
     color: #333;
     font-family: Sans-Serif;
     line-height: 1.5;
@@ -30,10 +30,6 @@ header .description {
     color: #888;
 }
 
-.highlight {
-    background: rgb(255, 255, 175);
-}
-
 .sticky {
     position: fixed;
     top: 0;
@@ -47,7 +43,6 @@ header .description {
 }
 
 article {
-    background-color: #e6e6e6;
     display: block !important;
     margin-top: 5em;
     margin-left: auto;
@@ -67,11 +62,8 @@ article h2 {
 article .description {
     margin: 1em;
     padding: 1em;
-
     max-width: 60em;
-
     background: #fafafa;
-
     border: 0.1em solid #eee;
 }
 
