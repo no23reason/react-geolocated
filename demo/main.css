@@ -1,10 +1,9 @@
 /* TODO: insert main styles of your demo here */
 
 body {
-    background: #fefefe;
-
+    /*background: #008ed4;*/
+    color: #333;
     font-family: Sans-Serif;
-
     line-height: 1.5;
 }
 
@@ -13,28 +12,22 @@ form label {
 }
 
 header {
+    background-color: #e6e6e6;
     position: fixed;
     padding: 0.5em;
     top: 0;
-
     text-align: center;
-
     color: #333;
     border: 0.1em solid #bbb;
-
-    background-image: url(./images/bgnoise_lg.png);
 }
 
 header h1 {
+    font-family: monospace;
     margin: 0;
 }
 
 header .description {
     color: #888;
-}
-
-.highlight {
-    background: rgb(255, 255, 175);
 }
 
 .sticky {
@@ -46,18 +39,16 @@ header .description {
 
 .github-fork-ribbon {
     position: fixed;
-
     letter-spacing: 0.01em;
 }
 
 article {
     display: block !important;
-
-    margin-top: 6em;
+    margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
-
     max-width: 768px;
+    padding: 1em;
 }
 
 article section {
@@ -71,14 +62,42 @@ article h2 {
 article .description {
     margin: 1em;
     padding: 1em;
-
     max-width: 60em;
-
     background: #fafafa;
-
     border: 0.1em solid #eee;
 }
 
 article .description h2 {
     margin: 0;
+}
+
+article .demonstration {
+    font-size: larger;
+    margin: 2em;
+    text-align: center;
+}
+
+article .demonstration .coordinate {
+    font-size: x-large;
+}
+
+.github-fork-ribbon {
+    background-color: #333;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td, th {
+    padding: 0.2em;
+    text-align: center;
+}
+
+td:not(:last-child), th:not(:last-child) {
+    border-right: 1px #333 solid;
+}
+
+th {
+    border-bottom: 1px #333 solid;
 }

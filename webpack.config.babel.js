@@ -21,6 +21,7 @@ const ROOT_PATH = __dirname;
 const config = {
   paths: {
     readme: path.join(ROOT_PATH, 'README.md'),
+    docs: path.join(ROOT_PATH, 'docs-resources', 'DOCS.md'),
     dist: path.join(ROOT_PATH, 'dist'),
     src: path.join(ROOT_PATH, 'src'),
     demo: path.join(ROOT_PATH, 'demo'),
@@ -97,8 +98,8 @@ if (TARGET === 'start') {
         'process.env.NODE_ENV': '"development"',
       }),
       new HtmlWebpackPlugin({
-        title: pkg.name + ' - ' + pkg.description,
-        template: 'lib/index_template.ejs',
+        title: pkg.name + ' — ' + pkg.description,
+        template: 'docs-resources/index_template.ejs',
 
         // Context for the template
         name: pkg.name,
@@ -107,7 +108,7 @@ if (TARGET === 'start') {
       }),
       new HtmlWebpackRemarkPlugin({
         key: 'documentation',
-        file: config.paths.readme,
+        file: config.paths.docs,
         languages: {
           js,
         },
@@ -165,7 +166,7 @@ NamedModulesPlugin.prototype.apply = function(compiler) {
   }.bind(this));
 };
 
-if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
+if (TARGET === 'make-docs') {
   module.exports = merge(demoCommon, {
     entry: {
       app: config.paths.demo,
@@ -175,12 +176,12 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       style: STYLE_ENTRIES,
     },
     output: {
-      path: './gh-pages',
+      path: './docs',
       filename: '[name].[chunkhash].js',
       chunkFilename: '[chunkhash].js',
     },
     plugins: [
-      new CleanPlugin(['gh-pages'], {
+      new CleanPlugin(['docs'], {
         verbose: false,
       }),
       new ExtractTextPlugin('[name].[chunkhash].css'),
@@ -189,8 +190,8 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
         'process.env.NODE_ENV': '"production"',
       }),
       new HtmlWebpackPlugin({
-        title: pkg.name + ' - ' + pkg.description,
-        template: 'lib/index_template.ejs',
+        title: pkg.name + ' — ' + pkg.description,
+        template: 'docs-resources/index_template.ejs',
 
         // Context for the template
         name: pkg.name,
@@ -199,7 +200,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
       }),
       new HtmlWebpackRemarkPlugin({
         key: 'documentation',
-        file: config.paths.readme,
+        file: config.paths.docs,
         languages: {
           js,
         },

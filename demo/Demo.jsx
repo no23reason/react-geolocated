@@ -1,27 +1,36 @@
 import React from 'react';
 import {geolocated, geoPropTypes} from '../src/index';
 
+const getDirection = (degrees, isLongitude) =>
+  degrees > 0
+    ? (isLongitude ? 'E' : 'N')
+    : (isLongitude ? 'W' : 'S');
+
+// addapted from http://stackoverflow.com/a/5786281/2546338
+const formatDegrees = (degrees, isLongitude) =>
+  `${0 | degrees}° ${0 | (degrees < 0 ? degrees = -degrees : degrees) % 1 * 60}' ${0 | degrees * 60 % 1 * 60}" ${getDirection(degrees, isLongitude)}`
+
 class Demo extends React.Component {
   render() {
-    return !this.props.isGeolocationAvailable
-      ? <div>Your browser does not support Geolocation</div>
-      : !this.props.isGeolocationEnabled
-        ? <div>Geolocation is not enabled</div>
-        : this.props.coords
-          ? <table>
-            <tbody>
-              <tr><td>latitude</td><td>{this.props.coords.latitude}</td></tr>
-              <tr><td>longitude</td><td>{this.props.coords.longitude}</td></tr>
-              <tr><td>altitude</td><td>{this.props.coords.altitude}</td></tr>
-              <tr><td>heading</td><td>{this.props.coords.heading}</td></tr>
-              <tr><td>speed</td><td>{this.props.coords.speed}</td></tr>
-            </tbody>
-          </table>
-          : <div>Getting the location data&hellip; </div>;
+    const {props} = this;
+    return !props.isGeolocationAvailable
+      ? <div>Your browser does not support Geolocation.</div>
+      : !props.isGeolocationEnabled
+        ? <div>Geolocation is not enabled.</div>
+        : props.coords
+          ? <div>
+            You are at <span className="coordinate">{formatDegrees(props.coords.latitude, false)}</span>, <span className="coordinate">{formatDegrees(props.coords.longitude, true)}</span>
+            {
+              props.coords.altitude
+                ? <span>, approximately {props.coords.altitude} meters above sea level</span>
+                : null
+            }.
+          </div>
+          : <div>Getting the location data&hellip;</div>;
   }
 }
 
-Demo.propTypes = {...Demo.propTypes, ...geoPropTypes};
+Demo.propTypes = {...Demo.propTypes, ...geoPropTypes };
 
 export default geolocated({
   positionOptions: {
