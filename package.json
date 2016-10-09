@@ -8,7 +8,7 @@
     "start": "webpack-dev-server",
     "test": "jest --coverage",
     "test:tdd": "jest --watch",
-    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
     "test:ts": "cd tests/typescript && typings install && tsc && rimraf out && rimraf typings",
     "make-docs": "webpack",
     "dist": "webpack",
