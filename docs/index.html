@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>react-geolocated - React.js Higher-Order Component for using Geolocation API</title>
+    <title>react-geolocated — React.js Higher–Order Component for using Geolocation API</title>
 
     
 
     
 
     
-  <link href="style.61218f0c26e8f5e5ef44.css" rel="stylesheet"></head>
+  <link href="style.e636c5c4e69700f3b1c4.css" rel="stylesheet"></head>
   <body>
     <div class="pure-g">
       <header class="pure-u-1">
@@ -18,24 +18,18 @@
         
 
         
-        <div class="description">React.js Higher-Order Component for using Geolocation API</div>
+        <div class="description">React.js Higher–Order Component for using Geolocation API</div>
         
       </header>
 
       <article class="pure-u-1">
-        <h2>Demo</h2>
         <section class="demonstration">
           
         </section>
 
-        <h2>Documentation</h2>
         <section class="documentation">
-          <div><div><p><a href="http://travis-ci.org/no23reason/react-geolocated"><img src="https://secure.travis-ci.org/no23reason/react-geolocated.svg" alt="build status"/></a><span>
-</span><a href="https://codecov.io/gh/no23reason/react-geolocated"><img src="https://codecov.io/gh/no23reason/react-geolocated/branch/master/graph/badge.svg" alt="codecov"/></a><span>
-</span><a href="https://www.npmjs.com/package/react-geolocated"><img src="https://img.shields.io/npm/v/react-geolocated.svg" alt="npm version"/></a><span>
-</span><a href="https://www.bithound.io/github/no23reason/react-geolocated"><img src="https://www.bithound.io/github/no23reason/react-geolocated/badges/score.svg" alt="bitHound Score"/></a><span>
-</span><a href="https://david-dm.org/no23reason/react-geolocated"><img src="https://david-dm.org/no23reason/react-geolocated.svg" alt="Dependency Status"/></a></p><h1><span>react-geolocated - React.js Higher-Order Component for using </span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation"><span>Geolocation API</span></a></h1><h2><span>Demo</span></h2><p><span>Basic demo can be found at the </span><a href="https://no23reason.github.io/react-geolocated/"><span>demo page</span></a><span>.</span></p><h2><span>Basic Usage</span></h2><p><span>Install using </span><code>npm</code><span>:</span></p><pre><pre class="lowlight"><code class="hljs js">npm install react-geolocated --save
-</code></pre></pre><p><span>Then use in your application like this:</span></p><pre><pre class="lowlight"><code class="hljs js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
+          <div><div><h3><span>Features</span></h3><ul><li><span>Customizable — the configuration exposes all the </span><a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions"><span>options of Geolocation API</span></a></li><li><span>Lightweight — the minified version has only 5 kB in size</span></li><li><span>Supports TypeScript — the typings are included in the project</span></li></ul><h3><span>Browser support</span></h3><table><thead><tr><th><span>Chrome </span><span>≥</span><span> 5</span></th><th><span>Firefox </span><span>≥</span><span> 3.5</span></th><th><span>Internet Explorer </span><span>≥</span><span> 9</span></th><th><span>Opera </span><span>≥</span><span> 10.60</span></th><th><span>Safari </span><span>≥</span><span> 5</span></th></tr></thead><tbody><tr><td><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_64x64.png" alt="Chrome logo"/></td><td><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_64x64.png" alt="Firefox logo"/></td><td><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/internet-explorer/internet-explorer_64x64.png" alt="Internet Explorer logo"/></td><td><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_64x64.png" alt="Opera logo"/></td><td><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/safari/safari_64x64.png" alt="Safari logo"/></td></tr></tbody></table><h3><span>How to get it</span></h3><p><span>It&#x27;s on </span><a href="https://www.npmjs.com/package/react-geolocated"><span>npm</span></a><span>, just do</span></p><pre><pre class="lowlight"><code class="hljs js">npm install react-geolocated
+</code></pre></pre><h3><span>How to use it</span></h3><p><span>It is a React Higher–Order Component that injects geolocation–related props in any component passed to it.</span></p><pre><pre class="lowlight"><code class="hljs js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
 <span class="hljs-keyword">import</span> {geolocated} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-geolocated&#x27;</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
@@ -59,67 +53,14 @@
 }
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> geolocated({
-  positionOptions: {
-    enableHighAccuracy: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">positionOptions</span>: {
+    <span class="hljs-attr">enableHighAccuracy</span>: <span class="hljs-literal">false</span>,
   },
-  userDecisionTimeout: <span class="hljs-number">5000</span>
+  <span class="hljs-attr">userDecisionTimeout</span>: <span class="hljs-number">5000</span>
 })(Demo);
-</code></pre></pre><h2><span>Props</span></h2><p><span>The props passed to the wrapped component are:</span></p><pre><pre class="lowlight"><code class="hljs js">{
-    coords: {
-        latitude,
-        longitude,
-        altitude,
-        accuracy,
-        altitudeAccuracy,
-        heading,
-        speed,
-    },
-    isGeolocationAvailable, <span class="hljs-comment">// boolean flag indicating that the browser supports the Geolocation API</span>
-    isGeolocationEnabled, <span class="hljs-comment">// boolean flag indicating that the user has allowed the use of the Geolocation API</span>
-    positionError, <span class="hljs-comment">// object with the error returned from the Geolocation API call</span>
-}
-</code></pre></pre><p><span>The </span><code>coords</code><span> prop is equivalent to the </span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Coordinates"><span>Coordinates</span></a><span> object and the </span><code>positionError</code><span> is equivalent to the </span><a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionError"><span>PositionError</span></a><span>.</span></p><h3><span>PropTypes</span></h3><p><span>Unfortunately, the </span><code>geolocated</code><span> HOC cannot add the prop types to the wrapped component directly, as the ESLint will not pick that up.  For this reason, prop types are exported as the </span><code>geoPropTypes</code><span> object.
-Using them is simple with </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign</code></a><span>
-(or if you already depend on it, lodash </span><a href="https://lodash.com/docs#merge"><code>merge</code></a><span> function is useful as well),
-or, if your environment supports it, using the </span><a href="https://developer.mozilla.org/cs/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"><span>object spread syntax</span></a><span>:</span></p><pre><pre class="lowlight"><code class="hljs js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
-<span class="hljs-keyword">import</span> {geolocated, geoPropTypes} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-geolocated&#x27;</span>;
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
-  <span class="hljs-comment">// Same as the basic example</span>
-}
-
-<span class="hljs-comment">// Using Object.assign</span>
-Demo.propTypes = <span class="hljs-built_in">Object</span>.assign({}, Demo.propTypes, geoPropTypes);
-<span class="hljs-comment">// Using ES6 object spread syntax</span>
-Demo.propTypes = {...Demo.propTypes, ...geoPropTypes};
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> geolocated()(Demo);
-</code></pre></pre><h2><span>Configuration</span></h2><p><span>The </span><code>geolocated</code><span> function takes optional configuration parameter:</span></p><pre><pre class="lowlight"><code class="hljs js">{
-    positionOptions: {
-        enableHighAccuracy: <span class="hljs-literal">true</span>,
-        maximumAge: <span class="hljs-number">0</span>,
-        timeout: <span class="hljs-literal">Infinity</span>,
-    },
-    userDecisionTimeout: <span class="hljs-literal">null</span>,
-    geolocationProvider: navigator.geolocation
-}
-</code></pre></pre><p><span>The </span><code>positionOptions</code><span> object corresponds to the </span><a href="https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions"><span>PositionOptions</span></a><span> of the Geolocation API.</span></p><p><span>If set, the </span><code>userDecisionTimeout</code><span> determines how much time (in miliseconds) we give the user to make the decision whether to allow to share their location or not.
-In Firefox, if the user declines to use their location, the Geolocation API call does not end with an error.
-Therefore we want to fallback to the error state if the user declines and the API does not tell us.</span></p><p><span>The </span><code>geolocationProvider</code><span> allows to specify alternative source of the geolocation API. This was added mainly for testing purposes, however feel free to use it if need be.</span></p><h2><span>TypeScript</span></h2><p><span>This project ships with type definitions for TypeScript provided. You can use them in your TypeScript files like this:</span></p><pre><pre class="lowlight"><code class="hljs js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
-<span class="hljs-keyword">import</span> {GeolocatedProps, geolocated} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-geolocated&#x27;</span>;
-
-interface IDemoProps extends GeolocatedProps {}
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span>&lt;<span class="hljs-title">IDemoProps</span>, </span>{}&gt; {
-  render(): React.ReactElement&lt;{}&gt; {
-    <span class="hljs-keyword">return</span> &lt;div&gt;lattitude: {this.props.coords &amp;&amp; this.props.coords.latitude}&lt;/div&gt;;
-  }
-}
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> geolocated()(Demo);
-</code></pre></pre><h2><span>Acknowledgements</span></h2><p><span>Many thanks belong to </span><a href="https://github.com/mcumpl"><span>@mcumpl</span></a><span> for the original idea for this as well as many suggestions and comments.</span></p><p><span>This project uses the </span><a href="https://github.com/survivejs/react-component-boilerplate"><span>react-component-boilerplate</span></a><span>.</span></p><h2><span>License</span></h2><p><em><span>react-geolocated</span></em><span> is available under MIT. See LICENSE for more details.</span></p></div></div>
+</code></pre></pre><p><span>For the complete API documentation and more, please see the  </span><a href="https://github.com/no23reason/react-geolocated/blob/master/README.md"><span>README</span></a><span>.</span></p></div></div>
         </section>
       </article>
     </div>
-  <script type="text/javascript" src="manifest.fd4fb30a79e30a6cbb29.js"></script><script type="text/javascript" src="vendors.901e9a8b4d87bf95ede7.js"></script><script type="text/javascript" src="style.61218f0c26e8f5e5ef44.js"></script><script type="text/javascript" src="app.a3d6c1b91837c7bb8dc5.js"></script></body>
+  <script type="text/javascript" src="manifest.6e286b1430a7f46d10f7.js"></script><script type="text/javascript" src="vendors.70814efa8f6f8bf01307.js"></script><script type="text/javascript" src="style.e636c5c4e69700f3b1c4.js"></script><script type="text/javascript" src="app.f39069f617f9b141d494.js"></script></body>
 </html>
