@@ -141,4 +141,4 @@ This project uses the [react-component-boilerplate](https://github.com/survivejs
 
 ## License
 
-*react-geolocated* is available under MIT. See [LICENSE](https://github.com/no23reason/react-geolocated/blob/features/docs/LICENSE) for more details.
+*react-geolocated* is available under MIT. See [LICENSE](https://github.com/no23reason/react-geolocated/tree/master/LICENSE) for more details.
