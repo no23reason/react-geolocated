@@ -17,7 +17,7 @@
     "pretest": "rimraf tests/typescript/out && rimraf tests/typescript/typings && npm run test:lint && npm run test:ts",
     "preversion": "npm run test && npm run dist && npm run dist:min && git commit --allow-empty -am \"Update dist\"",
     "prepublish": "npm run dist:modules",
-    "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
+    "postpublish": "npm run make-docs",
     "postinstall": "node lib/post_install.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
