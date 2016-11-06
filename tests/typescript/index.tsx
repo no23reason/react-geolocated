@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {GeolocatedProps, geolocated} from 'react-geolocated';
+import { GeolocatedProps, geolocated } from 'react-geolocated';
 
 interface IDemoProps extends GeolocatedProps { }
 
