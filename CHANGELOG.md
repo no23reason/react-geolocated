@@ -1,3 +1,10 @@
+## 0.5.1 (6th of November 2016)
+
+### Enhancements
+  * Improved the demo and its build process
+  * Documented TypeScript definitions
+  * Moved to `semantic-release`, added `commitizen` support
+
 ## 0.5.0 (24th of September 2016)
 
 ### Bugfixes
