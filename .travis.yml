@@ -14,9 +14,6 @@ before_install:
 before_script:
   - npm prune
 after_success:
-  - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
-  - python travis_after_all.py
-  - export $(cat .to_export_back) &> /dev/null
   - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
   - npm run semantic-release
 branches:
