@@ -1,6 +1,9 @@
+coverage/
 demo/
 dist/
-tests/
+docs/
+docs-resources/
 src/
+tests/
 .*
-
+webpack.*
