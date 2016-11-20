@@ -96,18 +96,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	var geolocated = function geolocated() {
-	    var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	
-	    var _ref$positionOptions = _ref.positionOptions;
-	    var positionOptions = _ref$positionOptions === undefined ? {
+	    var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0],
+	        _ref$positionOptions = _ref.positionOptions,
+	        positionOptions = _ref$positionOptions === undefined ? {
 	        enableHighAccuracy: true,
 	        maximumAge: 0,
 	        timeout: Infinity
-	    } : _ref$positionOptions;
-	    var _ref$userDecisionTime = _ref.userDecisionTimeout;
-	    var userDecisionTimeout = _ref$userDecisionTime === undefined ? null : _ref$userDecisionTime;
-	    var _ref$geolocationProvi = _ref.geolocationProvider;
-	    var geolocationProvider = _ref$geolocationProvi === undefined ? typeof navigator !== 'undefined' && navigator.geolocation : _ref$geolocationProvi;
+	    } : _ref$positionOptions,
+	        _ref$userDecisionTime = _ref.userDecisionTimeout,
+	        userDecisionTimeout = _ref$userDecisionTime === undefined ? null : _ref$userDecisionTime,
+	        _ref$geolocationProvi = _ref.geolocationProvider,
+	        geolocationProvider = _ref$geolocationProvi === undefined ? typeof navigator !== 'undefined' && navigator.geolocation : _ref$geolocationProvi;
+	
 	    return function (WrappedComponent) {
 	        var result = function (_Component) {
 	            _inherits(Geolocated, _Component);
@@ -115,7 +115,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            function Geolocated(props) {
 	                _classCallCheck(this, Geolocated);
 	
-	                var _this = _possibleConstructorReturn(this, (Geolocated.__proto__ || Object.getPrototypeOf(Geolocated)).call(this, props));
+	                var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Geolocated).call(this, props));
 	
 	                _this.state = {
 	                    coords: null,
