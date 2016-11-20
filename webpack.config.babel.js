@@ -4,7 +4,6 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import HtmlWebpackRemarkPlugin from 'html-webpack-remark-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import SystemBellPlugin from 'system-bell-webpack-plugin';
 import CleanPlugin from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
 import React from 'react';
@@ -82,9 +81,6 @@ const demoCommon = {
       },
     ],
   },
-  plugins: [
-    new SystemBellPlugin(),
-  ],
 };
 
 if (TARGET === 'start') {
@@ -261,57 +257,4 @@ if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
       ],
     },
   })
-}
-
-const distCommon = {
-  devtool: 'source-map',
-  output: {
-    path: config.paths.dist,
-    libraryTarget: 'umd',
-    library: config.library,
-  },
-  entry: config.paths.src,
-  externals: {
-    'react': {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'React',
-      root: 'React',
-    },
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['babel'],
-        include: config.paths.src,
-      },
-    ],
-  },
-  plugins: [
-    new SystemBellPlugin(),
-  ],
-};
-
-if (TARGET === 'dist') {
-  module.exports = merge(distCommon, {
-    output: {
-      filename: config.filename + '.js',
-    },
-  });
-}
-
-if (TARGET === 'dist:min') {
-  module.exports = merge(distCommon, {
-    output: {
-      filename: config.filename + '.min.js',
-    },
-    plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-        },
-      }),
-    ],
-  });
 }
