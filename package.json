@@ -6,7 +6,8 @@
   "version": "0.0.0-semantic-release",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "jest --coverage",
+    "test": "npm run test:lint && npm run test:js && npm run test:ts",
+    "test:js": "jest --coverage",
     "test:tdd": "jest --watch",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
     "test:ts": "cd tests/typescript && rimraf out && rimraf typings && typings install && tsc && rimraf out && rimraf typings",
@@ -77,7 +78,7 @@
   ],
   "license": "MIT",
   "pre-push": [
-    "test",
+    "test:js",
     "test:lint"
   ],
   "config": {
