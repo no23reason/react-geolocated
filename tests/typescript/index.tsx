@@ -14,6 +14,17 @@ class Demo extends React.Component<IDemoProps, {}> {
   }
 }
 
+function StatelessDemo(props: GeolocatedProps): React.ReactElement<{}> {
+  return <div>
+      latitude: {props.coords && props.coords.latitude}
+      isGeolocationAvailable: {props.isGeolocationAvailable}
+      isGeolocationEnabled: {props.isGeolocationEnabled}
+      positionError: {props.positionError}
+    </div>;
+}
+
+const StatelessDemoWrapped = geolocated()(StatelessDemo);
+
 export default geolocated({
   userDecisionTimeout: 5000,
   positionOptions: {
