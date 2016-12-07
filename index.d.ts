@@ -41,16 +41,17 @@ interface GeolocatedProps {
   positionError?: PositionError;
 }
 
-declare class ElementClass extends React.Component<GeolocatedProps, any> { }
-interface ClassDecorator {
-  <T extends (typeof ElementClass)>(component: T): T;
+type ComponentType = React.ComponentClass<GeolocatedProps> | React.StatelessComponent<GeolocatedProps>;
+
+interface ComponentDecorator {
+  <TargetClass extends ComponentType>(component: TargetClass): TargetClass;
 }
 
 /**
  * The HOC function.
  */
-export function geolocated(config?: GeolocatedConfig): ClassDecorator;
+export function geolocated(config?: GeolocatedConfig): ComponentDecorator;
 /**
  * React propTypes object.
  */
-export const geoPropTypes: React.ValidationMap<ElementClass>;
+export const geoPropTypes: React.ValidationMap<ComponentType>;
