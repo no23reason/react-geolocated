@@ -31,7 +31,6 @@ const config = {
 };
 const CSS_PATHS = [
   config.paths.demo,
-  path.join(ROOT_PATH, 'style.css'),
   path.join(ROOT_PATH, 'node_modules', 'purecss'),
   path.join(ROOT_PATH, 'node_modules', 'highlight.js', 'styles', 'github.css'),
   path.join(ROOT_PATH, 'node_modules', 'react-ghfork', 'gh-fork-ribbon.ie.css'),
@@ -43,7 +42,6 @@ const STYLE_ENTRIES = [
   'react-ghfork/gh-fork-ribbon.ie.css',
   'react-ghfork/gh-fork-ribbon.css',
   './demo/main.css',
-  './style.css',
 ];
 
 process.env.BABEL_ENV = TARGET;
