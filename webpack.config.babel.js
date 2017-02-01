@@ -48,7 +48,7 @@ process.env.BABEL_ENV = TARGET;
 
 const demoCommon = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg'],
+    extensions: ['.js', '.jsx', '.css', '.png', '.jpg'],
   },
   module: {
     rules: [
@@ -121,7 +121,7 @@ if (TARGET === 'start') {
             loader: 'style-loader',
           },
           {
-            loader: 'style-css',
+            loader: 'css-loader',
           }],
           include: CSS_PATHS,
         },
@@ -214,11 +214,11 @@ if (TARGET === 'make-docs') {
         },
       }),
       new NamedModulesPlugin(),
-      new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false,
         },
+        sourceMap: true,
       }),
       new webpack.optimize.CommonsChunkPlugin({
         names: ['vendors', 'manifest'],
@@ -229,7 +229,10 @@ if (TARGET === 'make-docs') {
         {
           test: /\.css$/,
           use: {
-            loader: ExtractTextPlugin.extract('style', 'css'),
+            loader: ExtractTextPlugin.extract({
+              fallbackLoader: 'style-loader',
+              loader: 'css',
+            }),
           },
           include: CSS_PATHS,
         },
