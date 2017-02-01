@@ -228,12 +228,10 @@ if (TARGET === 'make-docs') {
       rules: [
         {
           test: /\.css$/,
-          use: {
-            loader: ExtractTextPlugin.extract({
-              fallbackLoader: 'style-loader',
-              loader: 'css',
-            }),
-          },
+          use: ExtractTextPlugin.extract({
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader',
+          }),
           include: CSS_PATHS,
         },
         {
