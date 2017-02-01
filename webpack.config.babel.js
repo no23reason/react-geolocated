@@ -51,31 +51,35 @@ const demoCommon = {
     extensions: ['', '.js', '.jsx', '.css', '.png', '.jpg'],
   },
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['eslint'],
+        enforce: 'pre',
+        use: [{
+          loader: 'eslint-loader',
+        }],
         include: [
           config.paths.demo,
           config.paths.src,
         ],
       },
-    ],
-    loaders: [
       {
         test: /\.png$/,
-        loader: 'url?limit=100000&mimetype=image/png',
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 100000,
+            mimetype: 'image/png',
+          },
+        }],
         include: config.paths.demo,
       },
       {
         test: /\.jpg$/,
-        loader: 'file',
+        use: [{
+          loader: 'file-loader',
+        }],
         include: config.paths.demo,
-      },
-      {
-        test: /\.json$/,
-        loader: 'json',
-        include: path.join(ROOT_PATH, 'package.json'),
       },
     ],
   },
@@ -110,15 +114,25 @@ if (TARGET === 'start') {
       new webpack.HotModuleReplacementPlugin(),
     ],
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css'],
+          use: [{
+            loader: 'style-loader',
+          },
+          {
+            loader: 'style-css',
+          }],
           include: CSS_PATHS,
         },
         {
           test: /\.jsx?$/,
-          loaders: ['babel?cacheDirectory'],
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          }],
           include: [
             config.paths.demo,
             config.paths.src,
@@ -141,17 +155,17 @@ if (TARGET === 'start') {
 function NamedModulesPlugin(options) {
   this.options = options || {};
 }
-NamedModulesPlugin.prototype.apply = function(compiler) {
-  compiler.plugin('compilation', function(compilation) {
-    compilation.plugin('before-module-ids', function(modules) {
-      modules.forEach(function(module) {
-        if(module.id === null && module.libIdent) {
+NamedModulesPlugin.prototype.apply = function (compiler) {
+  compiler.plugin('compilation', function (compilation) {
+    compilation.plugin('before-module-ids', function (modules) {
+      modules.forEach(function (module) {
+        if (module.id === null && module.libIdent) {
           var id = module.libIdent({
             context: this.options.context || compiler.options.context,
           });
 
           // Skip CSS files since those go through ExtractTextPlugin
-          if(!id.endsWith('.css')) {
+          if (!id.endsWith('.css')) {
             module.id = id;
           }
         }
@@ -180,7 +194,7 @@ if (TARGET === 'make-docs') {
       }),
       new ExtractTextPlugin('[name].[chunkhash].css'),
       new webpack.DefinePlugin({
-          // This affects the react lib size
+        // This affects the react lib size
         'process.env.NODE_ENV': '"production"',
       }),
       new HtmlWebpackPlugin({
@@ -211,15 +225,19 @@ if (TARGET === 'make-docs') {
       }),
     ],
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style', 'css'),
+          use: {
+            loader: ExtractTextPlugin.extract('style', 'css'),
+          },
           include: CSS_PATHS,
         },
         {
           test: /\.jsx?$/,
-          loaders: ['babel'],
+          use: [{
+            loader: 'babel-loader',
+          }],
           include: [
             config.paths.demo,
             config.paths.src,
@@ -234,19 +252,25 @@ if (TARGET === 'make-docs') {
 if (TARGET === 'test' || TARGET === 'test:tdd' || !TARGET) {
   module.exports = merge(demoCommon, {
     module: {
-      preLoaders: [
+      rules: [
         {
           test: /\.jsx?$/,
-          loaders: ['eslint'],
+          enforce: 'pre',
+          use: [{
+            loader: 'eslint-loader',
+          }],
           include: [
             config.paths.tests,
           ],
         },
-      ],
-      loaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['babel?cacheDirectory'],
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          }],
           include: [
             config.paths.src,
             config.paths.tests,
