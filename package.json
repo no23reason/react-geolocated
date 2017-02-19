@@ -57,7 +57,7 @@
     "typings": "^2.0.0",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^1.16.3",
+    "webpack-dev-server": "^2.4.0",
     "webpack-merge": "^3.0.0"
   },
   "peerDependencies": {
