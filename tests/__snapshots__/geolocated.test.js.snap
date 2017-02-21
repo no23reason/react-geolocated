@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Geolocated should cancel user decision timeout on success 1`] = `
 <div>
   50
