@@ -51,7 +51,7 @@
     "react-test-renderer": "~15.4.2",
     "rimraf": "^2.5.3",
     "semantic-release": "^6.3.2",
-    "style-loader": "^0.15.0",
+    "style-loader": "^0.16.0",
     "sync-exec": "^0.6.2",
     "typescript": "~2.1.4",
     "typings": "^2.0.0",
