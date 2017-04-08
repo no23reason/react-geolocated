@@ -1,11 +1,12 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import renderer from 'react-test-renderer';
 
-import geolocated, {geoPropTypes} from '../src/components/geolocated';
+import geolocated, { geoPropTypes } from '../src/components/geolocated';
 
 class SimpleComponent extends Component {
   render() {
-    const {coords, isGeolocationEnabled, message} = this.props;
+    const { coords, isGeolocationEnabled, message } = this.props;
     if (isGeolocationEnabled) {
       return (<div>
         {message && `${message}: `}
@@ -20,7 +21,7 @@ class SimpleComponent extends Component {
 SimpleComponent.propTypes = {
   message: PropTypes.string,
 };
-SimpleComponent.propTypes = {...SimpleComponent.propTypes, ...geoPropTypes };
+SimpleComponent.propTypes = { ...SimpleComponent.propTypes, ...geoPropTypes };
 
 const mockSuccessfulGeolocationProvider = {
   getCurrentPosition(onSuccess) {
