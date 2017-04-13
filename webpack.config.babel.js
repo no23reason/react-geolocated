@@ -144,7 +144,6 @@ if (TARGET === 'start') {
       historyApiFallback: true,
       hot: true,
       inline: true,
-      progress: true,
       host: process.env.HOST,
       port: process.env.PORT,
       stats: 'errors-only',
@@ -184,7 +183,7 @@ if (TARGET === 'make-docs') {
       style: STYLE_ENTRIES,
     },
     output: {
-      path: './docs',
+      path: path.resolve(__dirname, 'docs'),
       filename: '[name].[chunkhash].js',
       chunkFilename: '[chunkhash].js',
     },
@@ -229,8 +228,8 @@ if (TARGET === 'make-docs') {
         {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
-            fallbackLoader: 'style-loader',
-            loader: 'css-loader',
+            fallback: 'style-loader',
+            use: 'css-loader',
           }),
           include: CSS_PATHS,
         },
