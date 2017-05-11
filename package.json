@@ -42,7 +42,7 @@
     "highlight.js": "^9.4.0",
     "html-webpack-plugin": "^2.21.0",
     "html-webpack-remark-plugin": "^0.1.0",
-    "jest": "^19.0.0",
+    "jest": "^20.0.1",
     "json-loader": "^0.5.4",
     "purecss": "^0.6.0",
     "react": "~15.5.0",
