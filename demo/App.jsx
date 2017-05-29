@@ -8,7 +8,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Fork className="right" project={pkgInfo.user + '/' + pkgInfo.name} />
-        <Demo />
+        <Demo testPropPassing = {true} />
       </div>
     );
   }
