@@ -48,7 +48,7 @@ export default geolocated({
   positionOptions: {
     enableHighAccuracy: false,
   },
-  userDecisionTimeout: 5000
+  userDecisionTimeout: 5000,
 })(Demo);
 ```
 
@@ -118,13 +118,20 @@ The `geolocationProvider` allows to specify alternative source of the geolocatio
 This project ships with type definitions for TypeScript provided. You can use them in your TypeScript files like this:
 ```js
 import * as React from 'react';
-import {GeolocatedProps, geolocated} from 'react-geolocated';
+import { GeolocatedProps, geolocated } from 'react-geolocated';
 
-interface IDemoProps extends GeolocatedProps {}
+interface IDemoProps {
+  label: string;
+}
 
-class Demo extends React.Component<IDemoProps, {}> {
-  render(): React.ReactElement<{}> {
-    return <div>lattitude: {this.props.coords && this.props.coords.latitude}</div>;
+class Demo extends React.Component<IDemoProps & GeolocatedProps, {}> {
+  render(): JSX.Element {
+    return (
+      <div>
+        label: {this.props.label}
+        lattitude: {this.props.coords && this.props.coords.latitude}
+      </div>
+    );
   }
 }
 

@@ -47,7 +47,7 @@ export default geolocated({
   positionOptions: {
     enableHighAccuracy: false,
   },
-  userDecisionTimeout: 5000
+  userDecisionTimeout: 5000,
 })(Demo);
 ```
-For the complete API documentation and more, please see the  [README](https://github.com/no23reason/react-geolocated/blob/master/README.md).
+For the complete API documentation and more, please see the [README](https://github.com/no23reason/react-geolocated/blob/master/README.md).
