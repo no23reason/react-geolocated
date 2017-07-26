@@ -37,7 +37,7 @@
     "eslint-loader": "^1.8.0",
     "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.2",
-    "file-loader": "^0.11.0",
+    "file-loader": "^1.0.0-rc.0",
     "git-prepush-hook": "^1.0.1",
     "highlight.js": "^9.4.0",
     "html-webpack-plugin": "^2.21.0",
