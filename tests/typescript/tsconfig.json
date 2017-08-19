@@ -8,6 +8,6 @@
     ],
     "files": [
         "index.tsx",
-        "typings/index.d.ts"
+        "index.d.ts"
     ]
 }
