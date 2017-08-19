@@ -1,0 +1,17 @@
+{
+  "name": "react-geolocated-typescript-test",
+  "description": "Typings tests for react-geolocated",
+  "author": "Dan Homola",
+  "user": "no23reason",
+  "version": "0.0.0-semantic-release",
+  "scripts": {
+    "start": "node ./scripts/createTypings.js rimraf out && tsc && rimraf out && rimraf ./index.d.ts"
+  },
+  "devDependencies": {
+    "@types/react": "^15.6.1",
+    "@types/react-dom": "^15.5.3",
+    "rimraf": "^2.5.3",
+    "typescript": "^2.4.2"
+  },
+  "license": "MIT"
+}
