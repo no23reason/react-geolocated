@@ -52,7 +52,7 @@
     "rimraf": "^2.5.3",
     "semantic-release": "^7.0.1",
     "style-loader": "^0.18.0",
-    "typescript": "~2.3.1",
+    "typescript": "~2.4.1",
     "typings": "^2.0.0",
     "url-loader": "^0.5.7",
     "webpack": "^3.5.5",
