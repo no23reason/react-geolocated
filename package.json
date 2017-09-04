@@ -49,6 +49,7 @@
     "react-dom": "~15.6.1",
     "react-ghfork": "^0.3.3",
     "react-test-renderer": "~15.6.1",
+    "rimraf": "^2.6.1",
     "semantic-release": "^7.0.1",
     "style-loader": "^0.18.0",
     "url-loader": "^0.5.7",
