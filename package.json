@@ -46,7 +46,7 @@
     "json-loader": "^0.5.4",
     "purecss": "^1.0.0",
     "react": "~15.6.1",
-    "react-dom": "~15.6.1",
+    "react-dom": "~16.0.0",
     "react-ghfork": "^0.3.3",
     "react-test-renderer": "~15.6.1",
     "rimraf": "^2.6.1",
