@@ -1,5 +1,5 @@
 import React from 'react';
-import {geolocated, geoPropTypes} from '../src/index';
+import { geolocated, geoPropTypes } from '../src/index';
 
 const getDirection = (degrees, isLongitude) =>
   degrees > 0
@@ -12,7 +12,7 @@ const formatDegrees = (degrees, isLongitude) =>
 
 class Demo extends React.Component {
   render() {
-    const {props} = this;
+    const { props } = this;
     return !props.isGeolocationAvailable
       ? <div>Your browser does not support Geolocation.</div>
       : !props.isGeolocationEnabled
@@ -30,7 +30,7 @@ class Demo extends React.Component {
   }
 }
 
-Demo.propTypes = {...Demo.propTypes, ...geoPropTypes };
+Demo.propTypes = { ...Demo.propTypes, ...geoPropTypes };
 
 export default geolocated({
   positionOptions: {
