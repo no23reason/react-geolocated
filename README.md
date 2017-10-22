@@ -103,6 +103,7 @@ The `geolocated` function takes optional configuration parameter:
         timeout: Infinity,
     },
     userDecisionTimeout: null,
+    suppressLocationOnMount: false,
     geolocationProvider: navigator.geolocation
 }
 ```
@@ -111,6 +112,8 @@ The `positionOptions` object corresponds to the [PositionOptions](https://develo
 If set, the `userDecisionTimeout` determines how much time (in miliseconds) we give the user to make the decision whether to allow to share their location or not.
 In Firefox, if the user declines to use their location, the Geolocation API call does not end with an error.
 Therefore we want to fallback to the error state if the user declines and the API does not tell us.
+
+The location is obtained when the component mounts by default. If you want to prevent this and get the location later, set the `suppressLocationOnMount` to `true` and using a `ref` in the parent component call its `getLocation` method (see the demo's [`App` component](https://github.com/no23reason/react-geolocated/blob/dcbe587880751519a6ac6adaa6c49780b609e3c2/demo/App.jsx#L14-L21) for example of this).
 
 The `geolocationProvider` allows to specify alternative source of the geolocation API. This was added mainly for testing purposes, however feel free to use it if need be.
 
