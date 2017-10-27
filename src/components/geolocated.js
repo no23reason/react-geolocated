@@ -25,11 +25,7 @@ const geolocated = ({
                 positionError: null,
             };
 
-            if (userDecisionTimeout) {
-                this.userDecisionTimeoutId = setTimeout(() => {
-                    this.onPositionError();
-                }, userDecisionTimeout);
-            }
+            this.isCurrentlyMounted = false;
 
             this.onPositionError = this.onPositionError.bind(this);
             this.onPositionSuccess = this.onPositionSuccess.bind(this);
@@ -45,38 +41,51 @@ const geolocated = ({
 
         onPositionError(positionError) {
             this.cancelUserDecisionTimeout();
-            this.setState({
-                coords: null,
-                isGeolocationAvailable: this.state.isGeolocationAvailable,
-                isGeolocationEnabled: false,
-                positionError,
-            });
+            if (this.isCurrentlyMounted) {
+                this.setState({
+                    coords: null,
+                    isGeolocationAvailable: this.state.isGeolocationAvailable,
+                    isGeolocationEnabled: false,
+                    positionError,
+                });
+            }
         }
 
         onPositionSuccess(position) {
             this.cancelUserDecisionTimeout();
-            this.setState({
-                coords: position.coords,
-                isGeolocationAvailable: this.state.isGeolocationAvailable,
-                isGeolocationEnabled: true,
-                positionError: null,
-            });
+            if (this.isCurrentlyMounted) {
+                this.setState({
+                    coords: position.coords,
+                    isGeolocationAvailable: this.state.isGeolocationAvailable,
+                    isGeolocationEnabled: true,
+                    positionError: null,
+                });
+            }
         }
 
         getLocation() {
             if (!geolocationProvider || !geolocationProvider.getCurrentPosition) {
                 throw new Error('The provided geolocation provider is invalid');
             }
+
+            if (userDecisionTimeout) {
+                this.userDecisionTimeoutId = setTimeout(() => {
+                    this.onPositionError();
+                }, userDecisionTimeout);
+            }
+
             geolocationProvider.getCurrentPosition(this.onPositionSuccess, this.onPositionError, positionOptions);
         }
 
         componentDidMount() {
+            this.isCurrentlyMounted = true;
             if (!suppressLocationOnMount){
                 this.getLocation();
             }
         }
 
         componentWillUnmount() {
+            this.isCurrentlyMounted = false;
             this.cancelUserDecisionTimeout();
         }
 
