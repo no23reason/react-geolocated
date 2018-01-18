@@ -30,12 +30,23 @@ const mockSuccessfulGeolocationProvider = {
         latitude: 50,
         longitude: 20,
       },
-    })
+    });
+  },
+  watchPosition(onSuccess) {
+    return onSuccess({
+      coords: {
+        latitude: 50,
+        longitude: 20,
+      },
+    });
   },
 };
 
 const mockNoopGeolocationProvider = {
   getCurrentPosition() {
+    return;
+  },
+  watchPosition() {
     return;
   },
 };

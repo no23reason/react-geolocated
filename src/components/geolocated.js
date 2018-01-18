@@ -13,6 +13,7 @@ const geolocated = ({
     },
     userDecisionTimeout = null,
     suppressLocationOnMount = false,
+    watchPosition = false,
     geolocationProvider = (typeof (navigator) !== 'undefined' && navigator.geolocation),
 } = {}) => (WrappedComponent) => {
     let result = class Geolocated extends Component {
@@ -64,9 +65,13 @@ const geolocated = ({
         }
 
         getLocation() {
-            if (!geolocationProvider || !geolocationProvider.getCurrentPosition) {
+            if (!geolocationProvider || !geolocationProvider.getCurrentPosition || !geolocationProvider.watchPosition) {
                 throw new Error('The provided geolocation provider is invalid');
             }
+
+            const funcPosition = (watchPosition
+              ? geolocationProvider.watchPosition
+              : geolocationProvider.getCurrentPosition).bind(geolocationProvider);
 
             if (userDecisionTimeout) {
                 this.userDecisionTimeoutId = setTimeout(() => {
@@ -74,7 +79,11 @@ const geolocated = ({
                 }, userDecisionTimeout);
             }
 
-            geolocationProvider.getCurrentPosition(this.onPositionSuccess, this.onPositionError, positionOptions);
+            funcPosition(
+              this.onPositionSuccess,
+              this.onPositionError,
+              positionOptions
+            );
         }
 
         componentDidMount() {
@@ -87,6 +96,9 @@ const geolocated = ({
         componentWillUnmount() {
             this.isCurrentlyMounted = false;
             this.cancelUserDecisionTimeout();
+            if (watchPosition) {
+              geolocationProvider.clearWatch(this.watchId);
+            }
         }
 
         render() {
@@ -115,4 +127,5 @@ export const geoPropTypes = {
         code: PropTypes.oneOf([1, 2, 3]),
         message: PropTypes.string,
     }),
+    watchPosition: PropTypes.bool,
 };
