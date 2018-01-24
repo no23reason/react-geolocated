@@ -14,7 +14,7 @@
     "make-docs": "webpack",
     "dist": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
     "prepublish": "npm run dist",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release"
   },
   "main": "dist-modules",
   "typings": "./index.d.ts",
