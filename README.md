@@ -102,12 +102,15 @@ The `geolocated` function takes optional configuration parameter:
         maximumAge: 0,
         timeout: Infinity,
     },
+    watchPosition: false,
     userDecisionTimeout: null,
     suppressLocationOnMount: false,
     geolocationProvider: navigator.geolocation
 }
 ```
 The `positionOptions` object corresponds to the [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) of the Geolocation API.
+
+By default the component only sets position once.  To watch the user's position and provide live updates to position, set `watchPosition = true`.  The geolocation event handler is unregistered when the component unmounts.
 
 If set, the `userDecisionTimeout` determines how much time (in miliseconds) we give the user to make the decision whether to allow to share their location or not.
 In Firefox, if the user declines to use their location, the Geolocation API call does not end with an error.
