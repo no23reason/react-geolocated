@@ -50,7 +50,7 @@
     "react-ghfork": "^0.5.1",
     "react-test-renderer": "~15.6.1",
     "rimraf": "^2.6.1",
-    "semantic-release": "^11.0.2",
+    "semantic-release": "^12.2.2",
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
     "webpack": "^3.5.5",
