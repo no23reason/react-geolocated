@@ -6,9 +6,9 @@
   "version": "0.0.0-semantic-release",
   "scripts": {
     "dist": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
-    "gh-pages": "catalog build docs -u ./",
+    "gh-pages": "npm run gh-pages:build && npm run gh-pages:deploy",
+    "gh-pages:build": "catalog build docs -u ./",
     "gh-pages:deploy": "gh-pages -d docs/build",
-    "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
     "prepublish": "npm run dist",
     "prepush": "npm run test:lint && npm run test:js",
     "semantic-release": "semantic-release",
