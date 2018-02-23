@@ -31,7 +31,7 @@ ReactDOM.render(
       bannerColor="#fff"
       direction="right"
       height={80}
-      href="https://github.com/survivejs/react-component-boilerplate"
+      href="https://github.com/no23reason/react-geolocated"
       octoColor="#000"
       width={80}
     />

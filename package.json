@@ -6,7 +6,7 @@
   "version": "0.0.0-semantic-release",
   "scripts": {
     "dist": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
-    "make-docs": "catalog build docs-resources && mv ./docs-resources/build ./docs",
+    "make-docs": "rimraf ./docs && catalog build docs-resources && mv ./docs-resources/build ./docs",
     "prepublish": "npm run dist",
     "prepush": "npm run test:lint && npm run test:js",
     "semantic-release": "semantic-release",
