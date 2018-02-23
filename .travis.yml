@@ -6,8 +6,6 @@ cache:
 notifications:
   email: false
 node_js: 8
-before_script:
-  - npm prune
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
