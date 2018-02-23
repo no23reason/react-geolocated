@@ -1,6 +1,4 @@
 import React from 'react';
-import Fork from 'react-ghfork';
-import pkgInfo from '../package.json';
 import Demo from './Demo.jsx';
 
 export default class App extends React.Component {
@@ -22,10 +20,17 @@ export default class App extends React.Component {
 
   render() {
     const { getInnerRef, getLocation } = this;
-    return (<div>
-      <Fork className="right" project={pkgInfo.user + '/' + pkgInfo.name} />
-      <Demo ref={getInnerRef} />
-      <button onClick={getLocation}>Get location</button>
-    </div>);
+    return (
+      <article style={{ textAlign: 'center' }}>
+        <Demo ref={getInnerRef} />
+        <button
+          className="pure-button pure-button-primary"
+          onClick={getLocation}
+          type="button"
+        >
+          Get location
+        </button>
+      </article>
+    );
   }
 }
