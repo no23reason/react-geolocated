@@ -6,7 +6,10 @@
   "version": "0.0.0-semantic-release",
   "scripts": {
     "dist": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
+    "gh-pages": "catalog build docs",
+    "gh-pages:deploy": "gh-pages -d docs/build",
     "make-docs": "rimraf ./docs && catalog build docs-resources && mv ./docs-resources/build ./docs",
+    "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
     "prepublish": "npm run dist",
     "prepush": "npm run test:lint && npm run test:js",
     "semantic-release": "semantic-release",
@@ -34,6 +37,7 @@
     "cz-conventional-changelog": "^2.0.0",
     "eslint": "^4.18.1",
     "eslint-plugin-react": "^7.7.0",
+    "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "jest": "^22.4.2",
     "purecss": "^1.0.0",
