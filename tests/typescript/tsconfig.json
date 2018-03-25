@@ -1,13 +1,10 @@
 {
-    "compilerOptions": {
-        "jsx": "react",
-        "outDir": "out"
-    },
-    "exclude": [
-        "node_modules"
-    ],
-    "files": [
-        "index.tsx",
-        "index.d.ts"
+  "compilerOptions": {
+    "jsx": "react",
+    "typeRoots": [
+        "../../node_moduels/@types"
     ]
+  },
+  "exclude": ["node_modules"],
+  "files": ["index.tsx"]
 }
