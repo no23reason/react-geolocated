@@ -1,8 +1,8 @@
 {
-  "presets": ["env", "react"],
-  "plugins": [
-    "syntax-dynamic-import",
-    "transform-es2015-destructuring",
-    "transform-object-rest-spread"
-  ]
+    "presets": ["env", "react"],
+    "plugins": [
+        "syntax-dynamic-import",
+        "transform-es2015-destructuring",
+        "transform-object-rest-spread"
+    ]
 }
