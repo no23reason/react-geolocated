@@ -16,12 +16,13 @@
     "test:js": "jest --coverage",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
     "test:tdd": "jest --watch",
-    "test:ts": "cd tests/typescript && npm install && npm start",
+    "test:ts": "typings-tester --config ./tests/typescript/tsconfig.json ./tests/typescript/index.tsx",
     "test": "npm run test:lint && npm run test:js && npm run test:ts"
   },
   "main": "dist-modules",
   "typings": "./index.d.ts",
   "devDependencies": {
+    "@types/react": "^16.0.41",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
@@ -46,6 +47,8 @@
     "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.1",
     "semantic-release": "^12.2.4",
+    "typescript": "^2.7.2",
+    "typings-tester": "^0.3.1",
     "webpack": "^3.11.0"
   },
   "peerDependencies": {
