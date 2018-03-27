@@ -1,6 +1,3 @@
 {
-  "ignore": [
-    "dist/*.js",
-    "docs/*.js"
-  ]
+    "ignore": ["dist/*.js", "docs/*.js"]
 }

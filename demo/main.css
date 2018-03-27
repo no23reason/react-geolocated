@@ -89,12 +89,14 @@ table {
     margin: 0 auto;
 }
 
-td, th {
+td,
+th {
     padding: 0.2em;
     text-align: center;
 }
 
-td:not(:last-child), th:not(:last-child) {
+td:not(:last-child),
+th:not(:last-child) {
     border-right: 1px #333 solid;
 }
 
