@@ -89,7 +89,7 @@ const geolocated = ({
                 }, userDecisionTimeout);
             }
 
-            funcPosition(
+            this.watchId = funcPosition(
                 this.onPositionSuccess,
                 this.onPositionError,
                 positionOptions,
