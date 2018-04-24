@@ -10,6 +10,7 @@ interface GeolocatedConfig {
     positionOptions?: PositionOptions;
     /**
      * Time we give to the user to allow the use of Geolocation API before presuming they denied it.
+     * @default undefined
      */
     userDecisionTimeout?: number;
     /**
@@ -17,6 +18,16 @@ interface GeolocatedConfig {
      * @default navigator.geolocation
      */
     geolocationProvider?: Geolocation;
+    /**
+     * If set to true, the component does not query the Geolocation API on mount. You must use the getLocation method yourself.
+     * @default false
+     */
+    suppressLocationOnMount?: boolean;
+    /**
+     * If set to true, the component watches for position changes periodically.
+     * @default false
+     */
+    watchPosition?: boolean;
 }
 
 /**

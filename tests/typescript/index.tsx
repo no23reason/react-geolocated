@@ -38,8 +38,16 @@ const StatefulWrapped = geolocated({
         timeout: 10000,
     },
 })(Demo);
+const Suppressed = geolocated({
+    suppressLocationOnMount: true,
+})(Demo);
+const Watched = geolocated({
+    watchPosition: true,
+})(Demo);
 
 <div>
     <StatelessDemoWrapped isGeolocationEnabled={false} />
     <StatefulWrapped label="Hello!" />
+    <Suppressed label="Hi!" />
+    <Watched label="Yello!" />
 </div>;
