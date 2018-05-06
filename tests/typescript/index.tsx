@@ -49,5 +49,5 @@ const Watched = geolocated({
     <StatelessDemoWrapped isGeolocationEnabled={false} />
     <StatefulWrapped label="Hello!" />
     <Suppressed label="Hi!" />
-    <Watched label="Yello!" />
+    <Watched label="Yello!" onSuccess={position => console.log(position)} />
 </div>;

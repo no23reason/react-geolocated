@@ -52,6 +52,20 @@ interface GeolocatedProps {
     positionError?: PositionError;
 }
 
+/**
+ * Additional props the resulting component can take.
+ */
+interface ExternalProps {
+    /**
+     * Callback to call when geolocatio API invocation fails.
+     */
+    onError?: (positionError: PositionError) => void;
+    /**
+     * Callback to call when geolocatio API invocation succeeds.
+     */
+    onSuccess?: (position: Position) => void;
+}
+
 type ComponentType<TProps> =
     | React.ComponentClass<TProps>
     | React.StatelessComponent<TProps>;
@@ -59,7 +73,7 @@ type ComponentType<TProps> =
 interface ComponentDecorator {
     <TOriginalProps>(
         component: ComponentType<TOriginalProps & GeolocatedProps>,
-    ): React.ComponentClass<TOriginalProps>;
+    ): React.ComponentClass<TOriginalProps & ExternalProps>;
 }
 
 /**
