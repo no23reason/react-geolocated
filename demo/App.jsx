@@ -22,7 +22,8 @@ export default class App extends React.Component {
         const { getInnerRef, getLocation } = this;
         return (
             <article style={{ textAlign: "center" }}>
-                <Demo ref={getInnerRef} />
+            {/* eslint-disable-next-line no-console*/}
+                <Demo onError={error => console.log(error)} ref={getInnerRef} />
                 <button
                     className="pure-button pure-button-primary"
                     onClick={getLocation}

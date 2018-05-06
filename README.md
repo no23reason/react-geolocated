@@ -65,6 +65,16 @@ The props passed to the wrapped component are:
 ```
 The `coords` prop is equivalent to the [Coordinates](https://developer.mozilla.org/en-US/docs/Web/API/Coordinates) object and the `positionError` is equivalent to the [PositionError](https://developer.mozilla.org/en-US/docs/Web/API/PositionError).
 
+Additional props the resulting component can take:
+```js
+{
+  // callback call on Geolocation API error, takes PositionError as the only argument
+  onError,
+  // callback call on Geolocation API success, takes Position as the only argument  
+  onSuccess,
+}
+```
+
 ### PropTypes
 Unfortunately, the `geolocated` HOC cannot add the prop types to the wrapped component directly, as the ESLint will not pick that up.  For this reason, prop types are exported as the `geoPropTypes` object. Using them is simple with [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) (or if you already depend on it, lodash [`merge`](https://lodash.com/docs#merge) function is useful as well), or, if your environment supports it, using the [object spread syntax](https://developer.mozilla.org/cs/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment):
 ```js

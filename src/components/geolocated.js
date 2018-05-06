@@ -55,6 +55,9 @@ const geolocated = ({
                     positionError,
                 });
             }
+            if (this.props.onError) {
+                this.props.onError(positionError);
+            }
         }
 
         onPositionSuccess(position) {
@@ -66,6 +69,9 @@ const geolocated = ({
                     isGeolocationEnabled: true,
                     positionError: null,
                 });
+            }
+            if (this.props.onSuccess) {
+                this.props.onSuccess(position);
             }
         }
 
@@ -116,6 +122,10 @@ const geolocated = ({
         }
     };
     result.displayName = getDisplayName(WrappedComponent);
+    result.propTypes = {
+        onError: PropTypes.func,
+        onSuccess: PropTypes.func,
+    }
     return result;
 };
 
