@@ -44,6 +44,13 @@ class Demo extends React.Component {
                 ) : (
                     <div>Getting the location data&hellip;</div>
                 )}
+                {!!props.positionError && (
+                    <div>
+                        <br />
+                        Last position error:
+                        <pre>{JSON.stringify(props.positionError)}</pre>
+                    </div>
+                )}
             </div>
         );
     }
