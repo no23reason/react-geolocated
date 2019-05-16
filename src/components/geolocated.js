@@ -13,6 +13,7 @@ const geolocated = ({
         maximumAge: 0,
         timeout: Infinity,
     },
+    isOptimisticGeolocationEnabled = true,
     userDecisionTimeout = null,
     suppressLocationOnMount = false,
     watchPosition = false,
@@ -25,7 +26,7 @@ const geolocated = ({
             this.state = {
                 coords: null,
                 isGeolocationAvailable: Boolean(geolocationProvider),
-                isGeolocationEnabled: true, // be optimistic
+                isGeolocationEnabled: isOptimisticGeolocationEnabled,
                 positionError: null,
             };
 
@@ -125,7 +126,7 @@ const geolocated = ({
     result.propTypes = {
         onError: PropTypes.func,
         onSuccess: PropTypes.func,
-    }
+    };
     return result;
 };
 
