@@ -7897,9 +7897,9 @@ react-error-overlay@^3.0.0:
   integrity sha512-XzgvowFrwDo6TWcpJ/WTiarb9UI6lhA4PMzS7n1joK3sHfBBBOQHUc0U4u57D6DWO9vHv6lVSWx2Q/Ymfyv4hw==
 
 react-github-corner@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/react-github-corner/-/react-github-corner-2.1.0.tgz#559363f5407e932db47e942f639d165e81827be4"
-  integrity sha512-BAnFnDz0q3D/XCSTb2k+oyyv2sVCl+dUrVY01bXPLKG8CJCUr0ZAe0KTatSQPD3S9iUHRB+aSlt1CoUkAW/RpA==
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-github-corner/-/react-github-corner-2.3.0.tgz#73ab17324b670c9cd955567b09663d385cfb05ef"
+  integrity sha512-yVh8wtAfVA5CQYn8ygyxtsuCMoyiSEBVnzQJ3ynyWxZ1BzT2MHop4baZn/PnUnU9Yh8mwhLS5Y1RVxM5zNotGw==
 
 react-is@^16.8.1:
   version "16.8.6"
