@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "jsx": "react",
-        "typeRoots": ["../../node_moduels/@types"]
+        "typeRoots": ["../../node_modules/@types"],
+        "lib": ["dom", "es2015"]
     },
     "exclude": ["node_modules"],
     "files": ["index.tsx"]
