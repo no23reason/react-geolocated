@@ -15,17 +15,15 @@
         "semantic-release": "semantic-release",
         "start": "catalog start docs",
         "test:js": "jest --coverage",
-        "test:lint":
-            "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
+        "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
         "test:tdd": "jest --watch",
-        "test:ts":
-            "typings-tester --config ./tests/typescript/tsconfig.json ./tests/typescript/index.tsx",
+        "test:ts": "typings-tester --config ./tests/typescript/tsconfig.json ./tests/typescript/index.tsx",
         "test": "npm run test:lint && npm run test:js && npm run test:ts"
     },
     "main": "dist-modules",
     "typings": "./index.d.ts",
     "devDependencies": {
-        "@types/react": "^16.4.14",
+        "@types/react": "^16.8.19",
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
         "babel-eslint": "^10.0.0",
@@ -45,10 +43,10 @@
         "prettier": "^1.11.1",
         "pretty-quick": "^1.4.1",
         "purecss": "^1.0.0",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
         "react-github-corner": "^2.1.0",
-        "react-test-renderer": "^16.2.0",
+        "react-test-renderer": "^16.8.6",
         "rimraf": "^2.6.1",
         "semantic-release": "^15.1.6",
         "typescript": "^3.0.3",
@@ -68,7 +66,11 @@
     "bugs": {
         "url": "https://github.com/no23reason/react-geolocated/issues"
     },
-    "keywords": ["react", "reactjs", "geolocation"],
+    "keywords": [
+        "react",
+        "reactjs",
+        "geolocation"
+    ],
     "license": "MIT",
     "config": {
         "commitizen": {
