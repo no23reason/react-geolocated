@@ -3,6 +3,7 @@ docs/build/
 dist-modules/
 node_modules/
 coverage/
+.idea/
 .eslintcache
 npm-debug.log
 yarn-error.log

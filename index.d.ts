@@ -28,6 +28,11 @@ interface GeolocatedConfig {
      * @default false
      */
     watchPosition?: boolean;
+    /**
+     * Allows to set the default value of isGeolocationEnabled
+     * @default true
+     */
+    isOptimisticGeolocationEnabled?: boolean;
 }
 
 /**
