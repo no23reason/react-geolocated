@@ -1,37 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import Demo from "./Demo.jsx";
 
-export default class App extends React.Component {
-    constructor(props) {
-        super(props);
+const App = () => {
+    const innerRef = useRef();
 
-        this.getInnerRef = this.getInnerRef.bind(this);
-        this.getLocation = this.getLocation.bind(this);
-    }
+    const getLocation = () => {
+        innerRef.current && innerRef.current.getLocation();
+    };
 
-    innerRef;
-    getInnerRef(ref) {
-        this.innerRef = ref;
-    }
-
-    getLocation() {
-        this.innerRef && this.innerRef.getLocation();
-    }
-
-    render() {
-        const { getInnerRef, getLocation } = this;
-        return (
-            <article style={{ textAlign: "center" }}>
+    return (
+        <article style={{ textAlign: "center" }}>
             {/* eslint-disable-next-line no-console*/}
-                <Demo onError={error => console.log(error)} ref={getInnerRef} />
-                <button
-                    className="pure-button pure-button-primary"
-                    onClick={getLocation}
-                    type="button"
-                >
-                    Get location
-                </button>
-            </article>
-        );
-    }
-}
+            <Demo onError={error => console.log(error)} ref={innerRef} />
+            <button
+                className="pure-button pure-button-primary"
+                onClick={getLocation}
+                type="button"
+            >
+                Get location
+            </button>
+        </article>
+    );
+};
+
+export default App;
