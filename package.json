@@ -54,7 +54,7 @@
         "react-test-renderer": "^16.8.6",
         "rimraf": "^3.0.0",
         "semantic-release": "^15.1.6",
-        "typescript": "^3.0.3",
+        "typescript": "^3.6.2",
         "typings-tester": "^0.3.2"
     },
     "peerDependencies": {
