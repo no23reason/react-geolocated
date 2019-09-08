@@ -1,11 +1,11 @@
 {
-  "vendors.js": "/static/js/vendors.6cafeb7b.js",
-  "vendors.js.map": "/static/js/vendors.f459696a922f006d357f.js.map",
-  "app.js": "/static/js/app.f459696a922f006d357f.js",
-  "app.js.map": "/static/js/app.f459696a922f006d357f.js.map",
-  "demo-app.js": "/static/js/demo-app.d0419ed8.js",
-  "demo-app.js.map": "/static/js/demo-app.f459696a922f006d357f.js.map",
-  "readme.js": "/static/js/readme.47739f7b.js",
-  "readme.js.map": "/static/js/readme.f459696a922f006d357f.js.map",
-  "index.html": "/index.html"
+  "vendors.js": "/react-geolocated/static/js/vendors.93bd2e80.js",
+  "vendors.js.map": "/react-geolocated/static/js/vendors.cd8d9393f9ea17aaefa7.js.map",
+  "app.js": "/react-geolocated/static/js/app.cd8d9393f9ea17aaefa7.js",
+  "app.js.map": "/react-geolocated/static/js/app.cd8d9393f9ea17aaefa7.js.map",
+  "demo-app.js": "/react-geolocated/static/js/demo-app.d0419ed8.js",
+  "demo-app.js.map": "/react-geolocated/static/js/demo-app.cd8d9393f9ea17aaefa7.js.map",
+  "readme.js": "/react-geolocated/static/js/readme.47739f7b.js",
+  "readme.js.map": "/react-geolocated/static/js/readme.cd8d9393f9ea17aaefa7.js.map",
+  "index.html": "/react-geolocated/index.html"
 }
