@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import renderer from "react-test-renderer";
 
-import geolocated, { geoPropTypes } from "../src/components/geolocated";
+import { geolocated, geoPropTypes } from "../src";
 
 class SimpleComponent extends Component {
     render() {

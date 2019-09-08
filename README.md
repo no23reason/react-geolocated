@@ -1,10 +1,15 @@
+---
+name: Readme
+route: /
+---
+
 [![build status](https://secure.travis-ci.org/no23reason/react-geolocated.svg)](http://travis-ci.org/no23reason/react-geolocated) [![codecov](https://codecov.io/gh/no23reason/react-geolocated/branch/master/graph/badge.svg)](https://codecov.io/gh/no23reason/react-geolocated) [![npm version](https://img.shields.io/npm/v/react-geolocated.svg)](https://www.npmjs.com/package/react-geolocated) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # react-geolocated - React.js Higher-Order Component for using [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation)
 
 ## Demo
 
-Basic demo can be found at the [demo page](https://no23reason.github.io/react-geolocated/#/demo).
+Basic demo can be found at the [demo page](https://no23reason.github.io/react-geolocated/demo).
 
 ## Basic Usage
 
@@ -94,7 +99,7 @@ Additional props the resulting component can take:
 {
   // callback call on Geolocation API error, takes PositionError as the only argument
   onError,
-  // callback call on Geolocation API success, takes Position as the only argument  
+  // callback call on Geolocation API success, takes Position as the only argument
   onSuccess,
 }
 ```
@@ -178,11 +183,11 @@ export default geolocated()(Demo);
 
 ## Browser support
 
-*   Chrome ≥ 5
-*   Firefox ≥ 3.5
-*   Internet Explorer ≥ 9
-*   Opera ≥ 10.60
-*   Safari ≥ 5
+-   Chrome ≥ 5
+-   Firefox ≥ 3.5
+-   Internet Explorer ≥ 9
+-   Opera ≥ 10.60
+-   Safari ≥ 5
 
 ## Acknowledgements
 

@@ -62,11 +62,11 @@ interface GeolocatedProps {
  */
 interface ExternalProps {
     /**
-     * Callback to call when geolocatio API invocation fails.
+     * Callback to call when geolocation API invocation fails.
      */
     onError?: (positionError: PositionError) => void;
     /**
-     * Callback to call when geolocatio API invocation succeeds.
+     * Callback to call when geolocation API invocation succeeds.
      */
     onSuccess?: (position: Position) => void;
 }
