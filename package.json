@@ -37,7 +37,7 @@
         "babel-core": "^7.0.0-bridge.0",
         "babel-eslint": "^10.0.0",
         "babel-jest": "^23.4.2",
-        "cz-conventional-changelog": "^2.0.0",
+        "cz-conventional-changelog": "^3.0.2",
         "docz": "^1.2.0",
         "docz-theme-default": "^1.2.0",
         "eslint": "^6.0.1",
