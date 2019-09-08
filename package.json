@@ -14,7 +14,7 @@
         "precommit": "pretty-quick --staged",
         "semantic-release": "semantic-release",
         "start": "npm run docz:dev",
-        "test:js": "jest --coverage",
+        "test:js": "jest --coverage --testPathPattern './tests'",
         "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
         "test:tdd": "jest --watch",
         "test:ts": "typings-tester --config ./tests/typescript/tsconfig.json ./tests/typescript/index.tsx",
