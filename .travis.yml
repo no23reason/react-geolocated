@@ -1,16 +1,16 @@
 sudo: false
 language: node_js
 cache:
-  directories:
-    - node_modules
+    directories:
+        - node_modules
 notifications:
-  email: false
-node_js: 8
+    email: false
+node_js: 10
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+    except:
+        - /^v\d+\.\d+\.\d+$/
 deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-    - npm run semantic-release
+    provider: script
+    skip_cleanup: true
+    script:
+        - npm run semantic-release
