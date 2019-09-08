@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-function getDisplayName(WrappedComponent) {
-    return `Geolocated(${WrappedComponent.displayName ||
+const getDisplayName = WrappedComponent =>
+    `Geolocated(${WrappedComponent.displayName ||
         WrappedComponent.name ||
         "Component"})`;
-}
 
 export const geolocated = ({
     positionOptions = {
@@ -21,6 +20,8 @@ export const geolocated = ({
         navigator.geolocation,
 } = {}) => WrappedComponent => {
     let result = class Geolocated extends Component {
+        isCurrentlyMounted = false;
+
         constructor(props) {
             super(props);
             this.state = {
@@ -29,29 +30,19 @@ export const geolocated = ({
                 isGeolocationEnabled: isOptimisticGeolocationEnabled,
                 positionError: null,
             };
-
-            this.isCurrentlyMounted = false;
-
-            this.onPositionError = this.onPositionError.bind(this);
-            this.onPositionSuccess = this.onPositionSuccess.bind(this);
-            this.cancelUserDecisionTimeout = this.cancelUserDecisionTimeout.bind(
-                this,
-            );
-            this.getLocation = this.getLocation.bind(this);
         }
 
-        cancelUserDecisionTimeout() {
+        cancelUserDecisionTimeout = () => {
             if (this.userDecisionTimeoutId) {
                 clearTimeout(this.userDecisionTimeoutId);
             }
-        }
+        };
 
-        onPositionError(positionError) {
+        onPositionError = positionError => {
             this.cancelUserDecisionTimeout();
             if (this.isCurrentlyMounted) {
                 this.setState({
                     coords: null,
-                    isGeolocationAvailable: this.state.isGeolocationAvailable,
                     isGeolocationEnabled: false,
                     positionError,
                 });
@@ -59,14 +50,13 @@ export const geolocated = ({
             if (this.props.onError) {
                 this.props.onError(positionError);
             }
-        }
+        };
 
-        onPositionSuccess(position) {
+        onPositionSuccess = position => {
             this.cancelUserDecisionTimeout();
             if (this.isCurrentlyMounted) {
                 this.setState({
                     coords: position.coords,
-                    isGeolocationAvailable: this.state.isGeolocationAvailable,
                     isGeolocationEnabled: true,
                     positionError: null,
                 });
@@ -74,9 +64,9 @@ export const geolocated = ({
             if (this.props.onSuccess) {
                 this.props.onSuccess(position);
             }
-        }
+        };
 
-        getLocation() {
+        getLocation = () => {
             if (
                 !geolocationProvider ||
                 !geolocationProvider.getCurrentPosition ||
@@ -101,7 +91,7 @@ export const geolocated = ({
                 this.onPositionError,
                 positionOptions,
             );
-        }
+        };
 
         componentDidMount() {
             this.isCurrentlyMounted = true;
