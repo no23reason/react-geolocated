@@ -2561,10 +2561,10 @@ babel-plugin-emotion@^10.0.14, babel-plugin-emotion@^10.0.17:
     find-root "^1.1.0"
     source-map "^0.5.7"
 
-babel-plugin-export-metadata@^2.0.0-rc.1:
-  version "2.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-export-metadata/-/babel-plugin-export-metadata-2.0.0-rc.1.tgz#5672ccc3f87ed76de05ae81bf1b4bdaaef4ef17a"
-  integrity sha512-AdeAHKBd3503c9sRjni4CYqvR3PyOxiZN6Qi3dI/FfCGbKfCQRVFwDu4IB+Tq7HiWZsiX+8CZuR6Uw9mytkZGg==
+babel-plugin-export-metadata@2.0.0-rc.54:
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/babel-plugin-export-metadata/-/babel-plugin-export-metadata-2.0.0-rc.54.tgz#ff77c037a9fbd8fe1f7e335520565dcff2fa7181"
+  integrity sha512-OJ3aNq7YS2t3Y0hDgS3Ydr9jGZCDYcMlaeymNKAkhyU8YgnucSYH2Z4WV2D4sICZhnH9T/UHCybpp1bF4Npe5g==
   dependencies:
     "@babel/cli" "^7.5.5"
     "@babel/core" "^7.5.5"
@@ -4952,16 +4952,16 @@ docz-components@2.0.0-rc.48:
     theme-ui "^0.2.38"
     typography-theme-moraga "^0.16.19"
 
-docz-core@2.0.0-rc.53:
-  version "2.0.0-rc.53"
-  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-2.0.0-rc.53.tgz#abae26c14246d0ec88bf57874c3b49878e817593"
-  integrity sha512-UZLKnZGFvy2Zd8CSstRYO73NrxqwjcVTyK8CeiqmaqYblKCo+UyMqj7w8jswl8az6V8C2NhSBrC/D2D8D4VFgg==
+docz-core@2.0.0-rc.55:
+  version "2.0.0-rc.55"
+  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-2.0.0-rc.55.tgz#e6ff9411217a3afecb5589d2445d1b59c334e4e2"
+  integrity sha512-0Lf7wTLb6LTS9cf1X7EyW3dj708Fqo07ytLI+8GAe2ZGN1cYSzLLYTY19KuG/lK2a0EYoRNadiSXrPH4kASSgw==
   dependencies:
     "@sindresorhus/slugify" "^0.9.1"
     chalk "^2.4.2"
     chokidar "^3.0.2"
     detect-port "^1.3.0"
-    docz-utils "2.0.0-rc.48"
+    docz-utils "2.0.0-rc.54"
     env-dot-prop "^2.0.1"
     fast-deep-equal "^2.0.1"
     fast-glob "^3.0.4"
@@ -4970,12 +4970,12 @@ docz-core@2.0.0-rc.53:
     get-pkg-repo "^4.1.0"
     humanize-string "^2.1.0"
     latest-version "^5.1.0"
-    load-cfg "^2.0.0-rc.1"
+    load-cfg "2.0.0-rc.54"
     lodash "^4.17.14"
     minimatch "^3.0.4"
     ora "^3.4.0"
     react-docgen "^4.1.1"
-    react-docgen-actual-name-handler "^2.0.0-rc.1"
+    react-docgen-actual-name-handler "2.0.0-rc.54"
     react-docgen-external-proptypes-handler "^1.0.3"
     react-docgen-typescript "^1.12.5"
     recast "^0.18.1"
@@ -4988,10 +4988,10 @@ docz-core@2.0.0-rc.53:
     xstate "^4.6.7"
     yargs "^13.3.0"
 
-docz-utils@2.0.0-rc.48:
-  version "2.0.0-rc.48"
-  resolved "https://registry.yarnpkg.com/docz-utils/-/docz-utils-2.0.0-rc.48.tgz#bacf5c09dd3375ca2cd519bf26dea7203da0a3b2"
-  integrity sha512-s4kVcwkXV9heUYJWZD/s+Gdwbv4VLuEqDgEllzR88eX9IW40gDBT0U5ODH4Lxr3ScfJJzIk2mCXeTsclQJdbCA==
+docz-utils@2.0.0-rc.54:
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/docz-utils/-/docz-utils-2.0.0-rc.54.tgz#1092ca3fe2ae17f872f9f5aefd8c8e41b047e7a5"
+  integrity sha512-CEQYz+CKGlLm5Dz3U7uoKLe4OMwMIsnX+yc4DrE3R61m+kKmq3eACMqFB1mRTnYO6vdWLLIzhi0t62sI+9cigg==
   dependencies:
     "@babel/generator" "^7.5.5"
     "@babel/parser" "^7.5.5"
@@ -5016,22 +5016,22 @@ docz-utils@2.0.0-rc.48:
     unist-util-is "^3.0.0"
     unist-util-visit "^1.4.1"
 
-docz@2.0.0-rc.53, docz@^2.0.0-rc.35:
-  version "2.0.0-rc.53"
-  resolved "https://registry.yarnpkg.com/docz/-/docz-2.0.0-rc.53.tgz#b415f5bd10a9a711ff8efc301128a55e863ba10d"
-  integrity sha512-Jnr/YkYa5JWYqXyPTWNo8uhTIPo/oLN3UCvC3GOxPYZB7EcPcU2tl3TdEPcqKDdh4+wYk4OXoiDdzPyzrT8GwA==
+docz@2.0.0-rc.55, docz@^2.0.0-rc.35:
+  version "2.0.0-rc.55"
+  resolved "https://registry.yarnpkg.com/docz/-/docz-2.0.0-rc.55.tgz#45264755746ceb10e84d8e11714b3985063ae100"
+  integrity sha512-4lAip7F5NpzJiKu1q9f2h5tdtNNHHc95xaZsL+J7L8hogYZj1T/0zQLKriPOA1GxWPBd6uoGt2/NON6taw2lBw==
   dependencies:
     "@emotion/core" "^10.0.16"
     "@mdx-js/react" "^1.0.27"
     array-sort "^1.0.0"
     capitalize "^2.0.0"
     docz-components "2.0.0-rc.48"
-    docz-core "2.0.0-rc.53"
+    docz-core "2.0.0-rc.55"
     fast-deep-equal "^2.0.1"
     gatsby "^2.13.27"
     gatsby-plugin-eslint "^2.0.5"
     gatsby-plugin-typescript "^2.1.6"
-    gatsby-theme-docz "2.0.0-rc.53"
+    gatsby-theme-docz "2.0.0-rc.55"
     lodash "^4.17.14"
     marksy "^8.0.0"
     match-sorter "^3.1.1"
@@ -6738,10 +6738,10 @@ gatsby-telemetry@^1.1.22:
     stack-utils "1.0.2"
     uuid "3.3.3"
 
-gatsby-theme-docz@2.0.0-rc.53:
-  version "2.0.0-rc.53"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-docz/-/gatsby-theme-docz-2.0.0-rc.53.tgz#8a62e8ebfb25c1b574fd56cc96f979b9aeec7629"
-  integrity sha512-VGvcPLTh8FSIdGN6a7FpM9m2gttAue8IO43ZhEXZ5uX2QLlwNjxftwe0Ssv0O8kZRsh4wak7iT+rH6zU9CkjPw==
+gatsby-theme-docz@2.0.0-rc.55:
+  version "2.0.0-rc.55"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-docz/-/gatsby-theme-docz-2.0.0-rc.55.tgz#428220ae7205a198862c14f2ed2badfe8a0af76c"
+  integrity sha512-WLGT5i9GhtVVHCvfttPsILNxKh4vu06vGXzE1LevA7VgBLXSvTN0bmPmBf4dJz9+OlSjkUy9qck/JKEhAj45DA==
   dependencies:
     "@emotion/core" "^10.0.14"
     "@emotion/styled" "^10.0.14"
@@ -6749,10 +6749,10 @@ gatsby-theme-docz@2.0.0-rc.53:
     "@mdx-js/mdx" "^1.1.0"
     "@mdx-js/react" "^1.0.27"
     "@theme-ui/typography" "^0.2.5"
-    babel-plugin-export-metadata "^2.0.0-rc.1"
+    babel-plugin-export-metadata "2.0.0-rc.54"
     copy-text-to-clipboard "^2.1.0"
-    docz "2.0.0-rc.53"
-    docz-core "2.0.0-rc.53"
+    docz "2.0.0-rc.55"
+    docz-core "2.0.0-rc.55"
     emotion-theming "^10.0.14"
     fs-extra "^8.1.0"
     gatsby "^2.13.27"
@@ -6770,9 +6770,9 @@ gatsby-theme-docz@2.0.0-rc.53:
     react-feather "^2.0.3"
     react-helmet "^5.2.1"
     react-live "^2.1.2"
-    rehype-docz "2.0.0-rc.48"
+    rehype-docz "2.0.0-rc.54"
     rehype-slug "^2.0.3"
-    remark-docz "^2.0.0-rc.1"
+    remark-docz "2.0.0-rc.54"
     remark-frontmatter "^1.3.2"
     theme-ui "^0.2.38"
     typescript "3.5.3"
@@ -9594,10 +9594,10 @@ libnpx@^10.2.0:
     y18n "^4.0.0"
     yargs "^11.0.0"
 
-load-cfg@^2.0.0-rc.1:
-  version "2.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/load-cfg/-/load-cfg-2.0.0-rc.1.tgz#1a390c96eacea3244bd73860fb3a72cb64a92bd1"
-  integrity sha512-a8BuRK/7JKEYJkzrlt52y/EuupgtVcioQW+Hy7jWlDWrc1Qbt3g5EpktQf4Yv2Vn8Re2Cg/+bY3zLkKsBExafw==
+load-cfg@2.0.0-rc.54:
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/load-cfg/-/load-cfg-2.0.0-rc.54.tgz#42c2f5b12d33f2c30b2db8ce7c7a3b4993655e58"
+  integrity sha512-sM+x29aDa2EmuoBCxBZj/m4K+bzlIxF4SHDkv2sBtB8E6e9gyUfY+NPO48W6Adt16vaUsmyGAkSoTmeOa6Y7KA==
   dependencies:
     "@babel/core" "^7.5.5"
     "@babel/preset-env" "^7.5.5"
@@ -12932,10 +12932,10 @@ react-dev-utils@^4.2.3:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-docgen-actual-name-handler@^2.0.0-rc.1:
-  version "2.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/react-docgen-actual-name-handler/-/react-docgen-actual-name-handler-2.0.0-rc.1.tgz#70cd8b0f9c385fd2cb7ce99fb9886d970b8df36c"
-  integrity sha512-N5amFzJr56A71Mj3L0YJRkBqBDO8FFFnfHSGu/g99G7KGSogv8ZfL4d89azp16Pej9UnYTIAprQLz/8yEWdhCg==
+react-docgen-actual-name-handler@2.0.0-rc.54:
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/react-docgen-actual-name-handler/-/react-docgen-actual-name-handler-2.0.0-rc.54.tgz#a20f7fd420b773d28c22a50cf7885b1f9b1cbab3"
+  integrity sha512-c4FLX8qMeOWp96KvPjGal5Btg2+sqF9Ji3Zbz6fRXCuwovHykzuLA80cqM90im7RwDu4tgWYE2Ts2lRs4s1bRQ==
   dependencies:
     react-docgen "^4.1.1"
     recast "^0.18.1"
@@ -13488,13 +13488,13 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
-rehype-docz@2.0.0-rc.48:
-  version "2.0.0-rc.48"
-  resolved "https://registry.yarnpkg.com/rehype-docz/-/rehype-docz-2.0.0-rc.48.tgz#3d0ba5c653642e5b408d4c0692dbf1fb4ef6a37f"
-  integrity sha512-PDCziw+VVQ+spNGOiAKwPxjO8YOWbYPJf6nZdN+m9uxXQtODIQowtsejFpyxanPkk2lBlaHxFGJ2ltvigcdY+w==
+rehype-docz@2.0.0-rc.54:
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/rehype-docz/-/rehype-docz-2.0.0-rc.54.tgz#bd7be0bb240732a2ca0bc7a0695f40058554609c"
+  integrity sha512-7oWaHwhWJDEoXXi1FGbOMxqA+VatdlpCZr+J8Cg1yezWZ4IV04AviTc5HhxYC0ZvS0y9gvMfahkBsgjj4LS29Q==
   dependencies:
     brace "^0.11.1"
-    docz-utils "2.0.0-rc.48"
+    docz-utils "2.0.0-rc.54"
     hast-util-to-string "^1.0.2"
     jsx-ast-utils "^2.2.1"
     lodash "^4.17.14"
@@ -13525,10 +13525,10 @@ relay-runtime@2.0.0:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
 
-remark-docz@^2.0.0-rc.1:
-  version "2.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/remark-docz/-/remark-docz-2.0.0-rc.1.tgz#11cf3a72d98d2c949735531d4d8915b9b0d04407"
-  integrity sha512-GHGCddw8eHlgeN39db7w011nSrHLOHf7Oz1IVdh+kRB9o0Rx2y9FR8mjdVtG34xYzBFNuvKRMFbXOJhSYopHVA==
+remark-docz@2.0.0-rc.54:
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/remark-docz/-/remark-docz-2.0.0-rc.54.tgz#c461143889571e8dd98f319053e6fe879752f4e7"
+  integrity sha512-0ubiVl9zkfAEPj31sKfZp/9WCkPi10abUfN7eBUlQTGTMwt2KEbMfNGkPBSUxcl5AuWzeuFhFNn6IvFwfQEjyQ==
   dependencies:
     "@babel/generator" "^7.5.5"
     "@babel/types" "^7.5.5"
@@ -14052,7 +14052,7 @@ scheduler@^0.15.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-scheduler@^0.16.1, scheduler@^0.16.2:
+scheduler@^0.16.2:
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.16.2.tgz#f74cd9d33eff6fc554edfb79864868e4819132c1"
   integrity sha512-BqYVWqwz6s1wZMhjFvLfVR5WXP7ZY32M/wYPo04CcuPM7XZEbV2TBNW7Z0UkguPTl0dWMA59VbNXxK6q+pHItg==
