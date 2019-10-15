@@ -46,7 +46,7 @@
         "husky": "^3.0.0",
         "jest": "^24.9.0",
         "prettier": "^1.11.1",
-        "pretty-quick": "^1.4.1",
+        "pretty-quick": "^2.0.0",
         "purecss": "^1.0.0",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
