@@ -12647,9 +12647,9 @@ pretty-format@^24.9.0:
     react-is "^16.8.4"
 
 pretty-quick@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/pretty-quick/-/pretty-quick-2.0.0.tgz#fe3cf9b677c40e2ae96244f515239db425040a7a"
-  integrity sha512-PcM4S8nTMloTWl1KRkvkf0wAd4+WMH1Lzysey/xyTF5736bwltVyZXlnzP8l/0qUrpvmtzIpm2ecYiX84Qf5Yg==
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/pretty-quick/-/pretty-quick-2.0.1.tgz#417ee605ade98ecc686e72f63b5d28a2c35b43e9"
+  integrity sha512-y7bJt77XadjUr+P1uKqZxFWLddvj3SKY6EU4BuQtMxmmEFSMpbN132pUWdSG1g1mtUfO0noBvn7wBf0BVeomHg==
   dependencies:
     chalk "^2.4.2"
     execa "^2.1.0"
@@ -14122,14 +14122,6 @@ scheduler@^0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
   integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
-scheduler@^0.16.2:
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.16.2.tgz#f74cd9d33eff6fc554edfb79864868e4819132c1"
-  integrity sha512-BqYVWqwz6s1wZMhjFvLfVR5WXP7ZY32M/wYPo04CcuPM7XZEbV2TBNW7Z0UkguPTl0dWMA59VbNXxK6q+pHItg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
