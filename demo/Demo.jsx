@@ -6,11 +6,14 @@ const getDirection = (degrees, isLongitude) =>
 
 // adapted from http://stackoverflow.com/a/5786281/2546338
 const formatDegrees = (degrees, isLongitude) =>
-    `${0 | degrees}° ${0 |
-        (((degrees < 0 ? (degrees = -degrees) : degrees) % 1) * 60)}' ${0 |
-        (((degrees * 60) % 1) * 60)}" ${getDirection(degrees, isLongitude)}`;
+    `${0 | degrees}° ${
+        0 | (((degrees < 0 ? (degrees = -degrees) : degrees) % 1) * 60)
+    }' ${0 | (((degrees * 60) % 1) * 60)}" ${getDirection(
+        degrees,
+        isLongitude,
+    )}`;
 
-const Demo = props => (
+const Demo = (props) => (
     <div
         style={{
             fontSize: "large",

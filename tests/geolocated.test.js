@@ -100,7 +100,7 @@ describe("Geolocated", () => {
         expect(tree).toMatchSnapshot();
     });
 
-    it("should cancel user decision timeout on success", done => {
+    it("should cancel user decision timeout on success", (done) => {
         const Wrapped = geolocated({
             userDecisionTimeout: 100,
             geolocationProvider: mockSuccessfulGeolocationProvider,

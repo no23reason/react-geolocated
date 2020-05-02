@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-const getDisplayName = WrappedComponent =>
-    `Geolocated(${WrappedComponent.displayName ||
-        WrappedComponent.name ||
-        "Component"})`;
+const getDisplayName = (WrappedComponent) =>
+    `Geolocated(${
+        WrappedComponent.displayName || WrappedComponent.name || "Component"
+    })`;
 
 export const geolocated = ({
     positionOptions = {
@@ -18,7 +18,7 @@ export const geolocated = ({
     watchPosition = false,
     geolocationProvider = typeof navigator !== "undefined" &&
         navigator.geolocation,
-} = {}) => WrappedComponent => {
+} = {}) => (WrappedComponent) => {
     let result = class Geolocated extends Component {
         isCurrentlyMounted = false;
 
@@ -38,7 +38,7 @@ export const geolocated = ({
             }
         };
 
-        onPositionError = positionError => {
+        onPositionError = (positionError) => {
             this.cancelUserDecisionTimeout();
             if (this.isCurrentlyMounted) {
                 this.setState({
@@ -52,7 +52,7 @@ export const geolocated = ({
             }
         };
 
-        onPositionSuccess = position => {
+        onPositionSuccess = (position) => {
             this.cancelUserDecisionTimeout();
             if (this.isCurrentlyMounted) {
                 this.setState({
