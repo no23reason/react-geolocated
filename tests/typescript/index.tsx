@@ -18,7 +18,7 @@ class Demo extends React.Component<IDemoProps & GeolocatedProps, {}> {
     }
 }
 
-const StatelessDemo: React.FC<GeolocatedProps> = props => (
+const StatelessDemo: React.FC<GeolocatedProps> = (props) => (
     <div>
         latitude: {props.coords && props.coords.latitude}
         isGeolocationAvailable: {props.isGeolocationAvailable}
@@ -48,6 +48,9 @@ const x = (
         <StatelessDemoWrapped />
         <StatefulWrapped label="Hello!" />
         <Suppressed label="Hi!" />
-        <Watched label="Yello!" onSuccess={position => console.log(position)} />
+        <Watched
+            label="Yello!"
+            onSuccess={(position) => console.log(position)}
+        />
     </div>
 );
