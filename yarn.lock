@@ -1036,16 +1036,7 @@
     globals "^11.1.0"
     lodash "^4.17.13"
 
-"@babel/types@^7.0.0", "@babel/types@^7.3.0", "@babel/types@^7.4.4", "@babel/types@^7.5.5", "@babel/types@^7.7.0", "@babel/types@^7.8.3", "@babel/types@^7.8.6", "@babel/types@^7.9.0", "@babel/types@^7.9.5", "@babel/types@^7.9.6":
-  version "7.9.6"
-  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.9.6.tgz#2c5502b427251e9de1bd2dff95add646d95cc9f7"
-  integrity sha512-qxXzvBO//jO9ZnoasKF1uJzHd2+M6Q2ZPIVfnFps8JJvXy0ZBbwbNOmE6SGIY5XOY6d1Bo5lb9d9RJ8nv3WSeA==
-  dependencies:
-    "@babel/helper-validator-identifier" "^7.9.5"
-    lodash "^4.17.13"
-    to-fast-properties "^2.0.0"
-
-"@babel/types@^7.3.3":
+"@babel/types@^7.0.0", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.5.5", "@babel/types@^7.7.0", "@babel/types@^7.8.3", "@babel/types@^7.8.6", "@babel/types@^7.9.0", "@babel/types@^7.9.5", "@babel/types@^7.9.6":
   version "7.9.6"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.9.6.tgz#2c5502b427251e9de1bd2dff95add646d95cc9f7"
   integrity sha512-qxXzvBO//jO9ZnoasKF1uJzHd2+M6Q2ZPIVfnFps8JJvXy0ZBbwbNOmE6SGIY5XOY6d1Bo5lb9d9RJ8nv3WSeA==
@@ -13057,10 +13048,10 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-purecss@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/purecss/-/purecss-1.0.1.tgz#c83d84326a10beb5c3b36d20c0254e946e5568a7"
-  integrity sha512-mTUc5ZzpzafswEhCmTDfSRMMyRFdLYdd+KywMwnBC/MuA/Th7jug2z0Xso4WkxvtxoU/BS9aRb7WnBNyuA7YJQ==
+purecss@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/purecss/-/purecss-2.0.1.tgz#3732211cd0a38754bd75a5dca5cf0ac0c6178a8f"
+  integrity sha512-NdJXcfBQ/9WY9pZnM1ZBKyvPCL/C3bRw8vCo/dHo6J8YHgeETzLUT+/8CSnsUbRExZaHHtjewMU1vLxwOP3Deg==
 
 q@^1.1.2, q@^1.5.1:
   version "1.5.1"
