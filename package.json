@@ -46,7 +46,7 @@
         "gatsby-plugin-mdx": "^1.0.39",
         "gh-pages": "^2.0.0",
         "husky": "^4.2.3",
-        "jest": "^25.1.0",
+        "jest": "^26.0.1",
         "prettier": "^2.0.5",
         "pretty-quick": "^2.0.0",
         "purecss": "^1.0.0",
