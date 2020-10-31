@@ -49,7 +49,7 @@
         "jest": "^26.0.1",
         "prettier": "^2.0.5",
         "pretty-quick": "^3.1.0",
-        "purecss": "^1.0.0",
+        "purecss": "^2.0.3",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-github-corner": "^2.1.0",

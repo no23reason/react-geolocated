@@ -13585,10 +13585,10 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-purecss@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/purecss/-/purecss-1.0.1.tgz#c83d84326a10beb5c3b36d20c0254e946e5568a7"
-  integrity sha512-mTUc5ZzpzafswEhCmTDfSRMMyRFdLYdd+KywMwnBC/MuA/Th7jug2z0Xso4WkxvtxoU/BS9aRb7WnBNyuA7YJQ==
+purecss@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/purecss/-/purecss-2.0.3.tgz#ae6cd4a37b4a91658930c68098308f06d0737364"
+  integrity sha512-jK5t8Wdyh1xiskKt9Pk3psruRP7XHcHYfsBkA9tu+CGGxaC3goTyd9EFCFyYuhC7AK/68NqDfuOsP8FgQ9vHRg==
 
 q@^1.1.2, q@^1.5.1:
   version "1.5.1"
