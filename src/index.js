@@ -22,15 +22,12 @@ export const geolocated = ({
     let result = class Geolocated extends Component {
         isCurrentlyMounted = false;
 
-        constructor(props) {
-            super(props);
-            this.state = {
-                coords: null,
-                isGeolocationAvailable: Boolean(geolocationProvider),
-                isGeolocationEnabled: isOptimisticGeolocationEnabled,
-                positionError: null,
-            };
-        }
+        state = {
+            coords: null,
+            isGeolocationAvailable: Boolean(geolocationProvider),
+            isGeolocationEnabled: isOptimisticGeolocationEnabled,
+            positionError: null,
+        };
 
         cancelUserDecisionTimeout = () => {
             if (this.userDecisionTimeoutId) {
