@@ -44,6 +44,10 @@ interface GeolocatedProps {
      */
     coords?: Coordinates;
     /**
+     * The Geolocation API's timestamp value representing the time at which the location was retrieved.
+     */
+    timestamp?: DOMTimeStamp;
+    /**
      * Flag indicating that the browser supports the Geolocation API.
      */
     isGeolocationAvailable?: boolean;
