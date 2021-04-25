@@ -80,6 +80,7 @@ The props passed to the wrapped component are:
         heading,
         speed,
     },
+    timestamp, // timestamp of when the last position was retrieved
     isGeolocationAvailable, // boolean flag indicating that the browser supports the Geolocation API
     isGeolocationEnabled, // boolean flag indicating that the user has allowed the use of the Geolocation API
     positionError, // object with the error returned from the Geolocation API call
@@ -167,7 +168,7 @@ class Demo extends React.Component<IDemoProps & GeolocatedProps> {
         return (
             <div>
                 label: {this.props.label}
-                lattitude: {this.props.coords && this.props.coords.latitude}
+                latitude: {this.props.coords && this.props.coords.latitude}
             </div>
         );
     }

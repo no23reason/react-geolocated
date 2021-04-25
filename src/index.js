@@ -24,6 +24,7 @@ export const geolocated = ({
 
         state = {
             coords: null,
+            timestamp: null,
             isGeolocationAvailable: Boolean(geolocationProvider),
             isGeolocationEnabled: isOptimisticGeolocationEnabled,
             positionError: null,
@@ -54,6 +55,7 @@ export const geolocated = ({
             if (this.isCurrentlyMounted) {
                 this.setState({
                     coords: position.coords,
+                    timestamp: position.timestamp,
                     isGeolocationEnabled: true,
                     positionError: null,
                 });
@@ -127,6 +129,7 @@ export const geoPropTypes = {
         heading: PropTypes.number,
         speed: PropTypes.number,
     }),
+    timestamp: PropTypes.number,
     isGeolocationAvailable: PropTypes.bool,
     isGeolocationEnabled: PropTypes.bool,
     positionError: PropTypes.shape({

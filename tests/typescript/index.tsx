@@ -24,6 +24,8 @@ const StatelessDemo: React.FC<GeolocatedProps> = (props) => (
         isGeolocationAvailable: {props.isGeolocationAvailable}
         isGeolocationEnabled: {props.isGeolocationEnabled}
         positionError: {props.positionError}
+        coords: {props.coords}
+        timestamp: {props.timestamp}
     </div>
 );
 
