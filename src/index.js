@@ -6,118 +6,123 @@ const getDisplayName = (WrappedComponent) =>
         WrappedComponent.displayName || WrappedComponent.name || "Component"
     })`;
 
-export const geolocated = ({
-    positionOptions = {
-        enableHighAccuracy: true,
-        maximumAge: 0,
-        timeout: Infinity,
-    },
-    isOptimisticGeolocationEnabled = true,
-    userDecisionTimeout = null,
-    suppressLocationOnMount = false,
-    watchPosition = false,
-    geolocationProvider = typeof navigator !== "undefined" &&
-        navigator.geolocation,
-} = {}) => (WrappedComponent) => {
-    let result = class Geolocated extends Component {
-        isCurrentlyMounted = false;
+export const geolocated =
+    ({
+        positionOptions = {
+            enableHighAccuracy: true,
+            maximumAge: 0,
+            timeout: Infinity,
+        },
+        isOptimisticGeolocationEnabled = true,
+        userDecisionTimeout = null,
+        suppressLocationOnMount = false,
+        watchPosition = false,
+        geolocationProvider = typeof navigator !== "undefined" &&
+            navigator.geolocation,
+    } = {}) =>
+    (WrappedComponent) => {
+        let result = class Geolocated extends Component {
+            isCurrentlyMounted = false;
 
-        state = {
-            coords: null,
-            timestamp: null,
-            isGeolocationAvailable: Boolean(geolocationProvider),
-            isGeolocationEnabled: isOptimisticGeolocationEnabled,
-            positionError: null,
-        };
+            state = {
+                coords: null,
+                timestamp: null,
+                isGeolocationAvailable: Boolean(geolocationProvider),
+                isGeolocationEnabled: isOptimisticGeolocationEnabled,
+                positionError: null,
+            };
 
-        cancelUserDecisionTimeout = () => {
-            if (this.userDecisionTimeoutId) {
-                clearTimeout(this.userDecisionTimeoutId);
+            cancelUserDecisionTimeout = () => {
+                if (this.userDecisionTimeoutId) {
+                    clearTimeout(this.userDecisionTimeoutId);
+                }
+            };
+
+            onPositionError = (positionError) => {
+                this.cancelUserDecisionTimeout();
+                if (this.isCurrentlyMounted) {
+                    this.setState({
+                        coords: null,
+                        isGeolocationEnabled: false,
+                        positionError,
+                    });
+                }
+                if (this.props.onError) {
+                    this.props.onError(positionError);
+                }
+            };
+
+            onPositionSuccess = (position) => {
+                this.cancelUserDecisionTimeout();
+                if (this.isCurrentlyMounted) {
+                    this.setState({
+                        coords: position.coords,
+                        timestamp: position.timestamp,
+                        isGeolocationEnabled: true,
+                        positionError: null,
+                    });
+                }
+                if (this.props.onSuccess) {
+                    this.props.onSuccess(position);
+                }
+            };
+
+            getLocation = () => {
+                if (
+                    !geolocationProvider ||
+                    !geolocationProvider.getCurrentPosition ||
+                    !geolocationProvider.watchPosition
+                ) {
+                    throw new Error(
+                        "The provided geolocation provider is invalid",
+                    );
+                }
+
+                const funcPosition = (
+                    watchPosition
+                        ? geolocationProvider.watchPosition
+                        : geolocationProvider.getCurrentPosition
+                ).bind(geolocationProvider);
+
+                if (userDecisionTimeout) {
+                    this.userDecisionTimeoutId = setTimeout(() => {
+                        this.onPositionError();
+                    }, userDecisionTimeout);
+                }
+
+                this.watchId = funcPosition(
+                    this.onPositionSuccess,
+                    this.onPositionError,
+                    positionOptions,
+                );
+            };
+
+            componentDidMount() {
+                this.isCurrentlyMounted = true;
+                if (!suppressLocationOnMount) {
+                    this.getLocation();
+                }
+            }
+
+            componentWillUnmount() {
+                this.isCurrentlyMounted = false;
+                this.cancelUserDecisionTimeout();
+                if (watchPosition) {
+                    geolocationProvider.clearWatch(this.watchId);
+                }
+            }
+
+            render() {
+                return <WrappedComponent {...this.state} {...this.props} />;
             }
         };
-
-        onPositionError = (positionError) => {
-            this.cancelUserDecisionTimeout();
-            if (this.isCurrentlyMounted) {
-                this.setState({
-                    coords: null,
-                    isGeolocationEnabled: false,
-                    positionError,
-                });
-            }
-            if (this.props.onError) {
-                this.props.onError(positionError);
-            }
+        result.displayName = getDisplayName(WrappedComponent);
+        result.propTypes = {
+            onError: PropTypes.func,
+            onSuccess: PropTypes.func,
         };
-
-        onPositionSuccess = (position) => {
-            this.cancelUserDecisionTimeout();
-            if (this.isCurrentlyMounted) {
-                this.setState({
-                    coords: position.coords,
-                    timestamp: position.timestamp,
-                    isGeolocationEnabled: true,
-                    positionError: null,
-                });
-            }
-            if (this.props.onSuccess) {
-                this.props.onSuccess(position);
-            }
-        };
-
-        getLocation = () => {
-            if (
-                !geolocationProvider ||
-                !geolocationProvider.getCurrentPosition ||
-                !geolocationProvider.watchPosition
-            ) {
-                throw new Error("The provided geolocation provider is invalid");
-            }
-
-            const funcPosition = (watchPosition
-                ? geolocationProvider.watchPosition
-                : geolocationProvider.getCurrentPosition
-            ).bind(geolocationProvider);
-
-            if (userDecisionTimeout) {
-                this.userDecisionTimeoutId = setTimeout(() => {
-                    this.onPositionError();
-                }, userDecisionTimeout);
-            }
-
-            this.watchId = funcPosition(
-                this.onPositionSuccess,
-                this.onPositionError,
-                positionOptions,
-            );
-        };
-
-        componentDidMount() {
-            this.isCurrentlyMounted = true;
-            if (!suppressLocationOnMount) {
-                this.getLocation();
-            }
-        }
-
-        componentWillUnmount() {
-            this.isCurrentlyMounted = false;
-            this.cancelUserDecisionTimeout();
-            if (watchPosition) {
-                geolocationProvider.clearWatch(this.watchId);
-            }
-        }
-
-        render() {
-            return <WrappedComponent {...this.state} {...this.props} />;
-        }
+        return result;
     };
-    result.displayName = getDisplayName(WrappedComponent);
-    result.propTypes = {
-        onError: PropTypes.func,
-        onSuccess: PropTypes.func,
-    };
-    return result;
-};
 
 export const geoPropTypes = {
     coords: PropTypes.shape({
