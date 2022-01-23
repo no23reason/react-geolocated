@@ -1,26 +1,13 @@
-import React, { useRef } from "react";
-import Demo from "./Demo.jsx";
+import React from "react";
+import GithubCorner from "react-github-corner";
 
-const App = () => {
-    const innerRef = useRef();
+import { DemoPage } from "./DemoPage";
 
-    const getLocation = () => {
-        innerRef.current && innerRef.current.getLocation();
-    };
-
+export const App = () => {
     return (
-        <article style={{ textAlign: "center" }}>
-            {/* eslint-disable-next-line no-console*/}
-            <Demo onError={(error) => console.log(error)} ref={innerRef} />
-            <button
-                className="pure-button pure-button-primary"
-                onClick={getLocation}
-                type="button"
-            >
-                Get location
-            </button>
-        </article>
+        <main>
+            <DemoPage />
+            <GithubCorner href="https://github.com/no23reason/react-geolocated" />
+        </main>
     );
 };
-
-export default App;

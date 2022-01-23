@@ -13,7 +13,7 @@ const formatDegrees = (degrees, isLongitude) =>
         isLongitude,
     )}`;
 
-const Demo = (props) => (
+const DemoCore = (props) => (
     <div
         style={{
             fontSize: "large",
@@ -56,11 +56,11 @@ const Demo = (props) => (
     </div>
 );
 
-Demo.propTypes = { ...Demo.propTypes, ...geoPropTypes };
+DemoCore.propTypes = { ...DemoCore.propTypes, ...geoPropTypes };
 
-export default geolocated({
+export const Demo = geolocated({
     positionOptions: {
         enableHighAccuracy: false,
     },
     userDecisionTimeout: 5000,
-})(Demo);
+})(DemoCore);

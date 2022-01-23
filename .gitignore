@@ -1,5 +1,7 @@
 build/
 docs/build/
+demo/dist
+dist
 dist-modules/
 node_modules/
 coverage/
@@ -8,3 +10,4 @@ coverage/
 npm-debug.log
 yarn-error.log
 .docz
+.parcel-cache

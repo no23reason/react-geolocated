@@ -18,6 +18,7 @@
             "version": "detect"
         }
     },
+    "ignorePatterns": "demo",
     "rules": {
         "comma-dangle": [1, "always-multiline"],
         "jsx-quotes": 1,

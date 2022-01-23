@@ -7,20 +7,28 @@
     "scripts": {
         "dist": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
         "gh-pages": "npm run gh-pages:build && npm run gh-pages:deploy",
-        "gh-pages:build": "npm run docz:build",
-        "gh-pages:deploy": "gh-pages -d .docz/dist",
+        "gh-pages:build": "npm run docs:build",
+        "gh-pages:deploy": "gh-pages -d demo/dist",
         "prepublishOnly": "npm run dist",
         "prepush": "npm run test:lint && npm run test:js",
         "precommit": "pretty-quick --staged",
         "semantic-release": "semantic-release",
-        "start": "npm run docz:dev",
+        "start": "npm run docs:dev",
         "test:js": "jest --coverage --testPathPattern './tests'",
         "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
         "test:tdd": "jest --watch",
         "test:ts": "typings-tester --config ./tests/typescript/tsconfig.json ./tests/typescript/index.tsx",
         "test": "npm run test:lint && npm run test:js && npm run test:ts",
-        "docz:dev": "docz dev",
-        "docz:build": "docz build"
+        "docs:dev": "parcel --target docs",
+        "docs:build": "parcel build --target docs"
+    },
+    "targets": {
+        "main": false,
+        "docs": {
+            "source": "demo/index.html",
+            "distDir": "demo/dist",
+            "publicUrl": "/react-geolocated/"
+        }
     },
     "main": "dist-modules",
     "typings": "./index.d.ts",
@@ -36,13 +44,13 @@
         "@babel/preset-react": "^7.0.0",
         "@types/react": "^17.0.0",
         "cz-conventional-changelog": "^3.0.2",
-        "docz": "^2.3.1",
         "eslint": "^8.7.0",
         "eslint-config-prettier": "^8.1.0",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.7.0",
         "gh-pages": "^3.1.0",
         "jest": "^27.0.3",
+        "parcel": "^2.2.1",
         "prettier": "^2.5.1",
         "pretty-quick": "^3.1.0",
         "react": "^16.8.6",
