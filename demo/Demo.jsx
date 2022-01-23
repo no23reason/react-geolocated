@@ -13,14 +13,8 @@ const formatDegrees = (degrees, isLongitude) =>
         isLongitude,
     )}`;
 
-const Demo = (props) => (
-    <div
-        style={{
-            fontSize: "large",
-            fontWeight: "bold",
-            margin: "2rem",
-        }}
-    >
+const DemoCore = (props) => (
+    <div className="m-8 font-bold text-l">
         {!props.isGeolocationAvailable ? (
             <div>Your browser does not support Geolocation.</div>
         ) : !props.isGeolocationEnabled ? (
@@ -56,11 +50,11 @@ const Demo = (props) => (
     </div>
 );
 
-Demo.propTypes = { ...Demo.propTypes, ...geoPropTypes };
+DemoCore.propTypes = { ...DemoCore.propTypes, ...geoPropTypes };
 
-export default geolocated({
+export const Demo = geolocated({
     positionOptions: {
         enableHighAccuracy: false,
     },
     userDecisionTimeout: 5000,
-})(Demo);
+})(DemoCore);
