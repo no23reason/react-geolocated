@@ -14,13 +14,7 @@ const formatDegrees = (degrees, isLongitude) =>
     )}`;
 
 const DemoCore = (props) => (
-    <div
-        style={{
-            fontSize: "large",
-            fontWeight: "bold",
-            margin: "2rem",
-        }}
-    >
+    <div className="m-8 font-bold text-l">
         {!props.isGeolocationAvailable ? (
             <div>Your browser does not support Geolocation.</div>
         ) : !props.isGeolocationEnabled ? (
