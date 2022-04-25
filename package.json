@@ -43,7 +43,7 @@
         "@babel/plugin-transform-destructuring": "^7.0.0",
         "@babel/preset-env": "^7.0.0",
         "@babel/preset-react": "^7.0.0",
-        "@types/react": "^17.0.0",
+        "@types/react": "^18.0.6",
         "autoprefixer": "^10.4.2",
         "cz-conventional-changelog": "^3.0.2",
         "eslint": "^8.7.0",
