@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "strict": true,
+        "declaration": true,
+        "outDir": "./dist-modules",
+        "isolatedModules": true,
+        "target": "ES6",
+        "module": "CommonJS",
+        "lib": ["DOM"]
+    },
+    "files": ["./src/index.ts"]
+}

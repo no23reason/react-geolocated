@@ -1,10 +1,12 @@
 {
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
     "extends": [
-        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
         "plugin:prettier/recommended"
     ],
-    "parser": "@babel/eslint-parser",
     "env": {
         "browser": true,
         "node": true,
@@ -18,18 +20,5 @@
             "version": "detect"
         }
     },
-    "ignorePatterns": "demo",
-    "rules": {
-        "comma-dangle": [1, "always-multiline"],
-        "jsx-quotes": 1,
-        "no-console": 1,
-        "quotes": [2, "double"],
-        "react/jsx-boolean-value": 1,
-        "react/jsx-sort-props": 1,
-        "react/jsx-wrap-multilines": 1,
-        "react/no-did-mount-set-state": 1,
-        "react/no-did-update-set-state": 1,
-        "react/no-multi-comp": 1,
-        "react/self-closing-comp": 1
-    }
+    "ignorePatterns": "demo"
 }

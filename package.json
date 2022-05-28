@@ -1,77 +1,9 @@
 {
     "name": "react-geolocated",
-    "description": "React.js Higher–Order Component for using Geolocation API",
+    "description": "React.js Higher-Order Component for using Geolocation API",
     "author": "Dan Homola",
     "user": "no23reason",
     "version": "0.0.0-semantic-release",
-    "scripts": {
-        "dist": "rimraf ./dist-modules && babel ./src --out-dir ./dist-modules",
-        "gh-pages": "npm run gh-pages:build && npm run gh-pages:deploy",
-        "gh-pages:build": "npm run docs:build",
-        "gh-pages:deploy": "gh-pages -d demo/dist",
-        "prepublishOnly": "npm run dist",
-        "prepush": "npm run test:lint && npm run test:js",
-        "precommit": "pretty-quick --staged",
-        "semantic-release": "semantic-release",
-        "start": "npm run docs:dev",
-        "test:js": "jest --coverage --testPathPattern './tests'",
-        "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
-        "test:tdd": "jest --watch",
-        "test:ts": "typings-tester --config ./tests/typescript/tsconfig.json ./tests/typescript/index.tsx",
-        "test": "npm run test:lint && npm run test:js && npm run test:ts",
-        "docs:dev": "parcel --target docs",
-        "docs:build": "parcel build --target docs"
-    },
-    "targets": {
-        "main": false,
-        "docs": {
-            "source": "demo/index.html",
-            "distDir": "demo/dist",
-            "publicUrl": "/react-geolocated/"
-        }
-    },
-    "main": "dist-modules",
-    "typings": "./index.d.ts",
-    "browserslist": "> 0.5%, last 2 versions, not dead",
-    "devDependencies": {
-        "@babel/cli": "^7.0.0",
-        "@babel/core": "^7.0.0",
-        "@babel/eslint-parser": "^7.16.5",
-        "@babel/plugin-proposal-class-properties": "^7.5.5",
-        "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-        "@babel/plugin-transform-destructuring": "^7.0.0",
-        "@babel/preset-env": "^7.0.0",
-        "@babel/preset-react": "^7.0.0",
-        "@types/react": "^17.0.0",
-        "autoprefixer": "^10.4.2",
-        "cz-conventional-changelog": "^3.0.2",
-        "eslint": "^8.7.0",
-        "eslint-config-prettier": "^8.1.0",
-        "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-react": "^7.7.0",
-        "gh-pages": "^4.0.0",
-        "jest": "^27.0.3",
-        "parcel": "^2.2.1",
-        "postcss": "^8.4.5",
-        "prettier": "~2.6.2",
-        "pretty-quick": "^3.1.0",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-github-corner": "^2.1.0",
-        "react-test-renderer": "^17.0.2",
-        "rimraf": "^3.0.0",
-        "semantic-release": "^19.0.2",
-        "tailwindcss": "^3.0.15",
-        "typescript": "^3.6.2",
-        "typings-tester": "^0.3.2"
-    },
-    "peerDependencies": {
-        "react": ">= 0.11.2 < 18.0.0"
-    },
-    "dependencies": {
-        "prop-types": "^15.5.8"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/no23reason/react-geolocated.git"
@@ -83,9 +15,75 @@
     "keywords": [
         "react",
         "reactjs",
-        "geolocation"
+        "geolocation",
+        "hook"
     ],
     "license": "MIT",
+    "main": "dist-modules",
+    "typings": "./dist-modules/index.d.ts",
+    "scripts": {
+        "dist": "rimraf ./dist-modules && tsc -p .",
+        "gh-pages": "npm run gh-pages:build && npm run gh-pages:deploy",
+        "gh-pages:build": "npm run docs:build",
+        "gh-pages:deploy": "gh-pages -d demo/dist",
+        "prepublishOnly": "npm run dist",
+        "prepush": "npm run test:lint && npm run test:js",
+        "precommit": "pretty-quick --staged",
+        "semantic-release": "semantic-release",
+        "start": "npm run docs:dev",
+        "test:js": "jest --coverage --testPathPattern './tests'",
+        "test:lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern docs --cache",
+        "test:tdd": "jest --watch",
+        "test": "npm run test:lint && npm run test:js",
+        "docs:dev": "parcel --target docs_dev",
+        "docs:build": "parcel build --target docs"
+    },
+    "targets": {
+        "main": false,
+        "docs": {
+            "source": "demo/index.html",
+            "distDir": "demo/dist",
+            "publicUrl": "/react-geolocated/"
+        },
+        "docs_dev": {
+            "source": "demo/index.html",
+            "distDir": "demo/dist"
+        }
+    },
+    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "peerDependencies": {
+        "react": ">= 16.8.0 < 19.0.0"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^13.3.0",
+        "@types/jest": "^27.5.1",
+        "@types/react": "^18.0.9",
+        "@types/react-test-renderer": "^18.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.26.0",
+        "@typescript-eslint/parser": "^5.26.0",
+        "autoprefixer": "^10.4.2",
+        "cz-conventional-changelog": "^3.0.2",
+        "eslint": "^8.7.0",
+        "eslint-config-prettier": "^8.1.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.7.0",
+        "eslint-plugin-react-hooks": "^4.5.0",
+        "gh-pages": "^4.0.0",
+        "jest": "^27.0.3",
+        "parcel": "^2.2.1",
+        "postcss": "^8.4.5",
+        "prettier": "~2.6.2",
+        "pretty-quick": "^3.1.0",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0",
+        "react-github-corner": "^2.1.0",
+        "rimraf": "^3.0.0",
+        "semantic-release": "^19.0.2",
+        "tailwindcss": "^3.0.15",
+        "ts-jest": "^27.1.5",
+        "typescript": "^4.7.2"
+    },
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
