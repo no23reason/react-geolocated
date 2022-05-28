@@ -21,6 +21,7 @@
     "license": "MIT",
     "main": "dist-modules",
     "typings": "./dist-modules/index.d.ts",
+    "sideEffects": false,
     "scripts": {
         "dist": "rimraf ./dist-modules && tsc -p .",
         "gh-pages": "npm run gh-pages:build && npm run gh-pages:deploy",
