@@ -25,7 +25,7 @@ import React from "react";
 import { useGeolocated } from "react-geolocated";
 
 const Demo = () => {
-    const { ccords, isGeolocationAvailable, isGeolocationEnabled } =
+    const { coords, isGeolocationAvailable, isGeolocationEnabled } =
         useGeolocated({
             positionOptions: {
                 enableHighAccuracy: false,
