@@ -84,7 +84,7 @@
         "rimraf": "^3.0.0",
         "semantic-release": "^19.0.2",
         "tailwindcss": "^3.0.15",
-        "ts-jest": "^28.0.3",
+        "ts-jest": "^29.0.3",
         "typescript": "^4.7.2"
     },
     "config": {
