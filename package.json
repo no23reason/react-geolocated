@@ -73,7 +73,7 @@
         "eslint-plugin-react-hooks": "^4.5.0",
         "gh-pages": "^4.0.0",
         "jest": "^28.1.0",
-        "jest-environment-jsdom": "^28.1.0",
+        "jest-environment-jsdom": "^29.2.2",
         "parcel": "^2.2.1",
         "postcss": "^8.4.5",
         "prettier": "~2.7.1",
