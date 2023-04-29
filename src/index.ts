@@ -34,6 +34,11 @@ export interface GeolocatedConfig {
      */
     isOptimisticGeolocationEnabled?: boolean;
     /**
+     * If set to true, the component watches for location permission changes.
+     * @default false
+     */
+    watchLocationPermissionChange?: boolean;
+    /**
      * Callback to call when geolocation API invocation fails. Called with undefined when the user decision times out.
      */
     onError?: (positionError?: GeolocationPositionError) => void;
@@ -91,6 +96,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
         geolocationProvider = typeof navigator !== "undefined"
             ? navigator.geolocation
             : undefined,
+        watchLocationPermissionChange = false,
         onError,
         onSuccess,
     } = config;
@@ -107,6 +113,9 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
     const [timestamp, setTimestamp] = useState<EpochTimeStamp | undefined>();
     const [positionError, setPositionError] = useState<
         GeolocationPositionError | undefined
+    >();
+    const [permissionState, setPermissionState] = useState<
+        PermissionState | undefined
     >();
 
     const cancelUserDecisionTimeout = useCallback(() => {
@@ -178,6 +187,31 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
     ]);
 
     useEffect(() => {
+        let permission: PermissionStatus;
+
+        if (
+            watchLocationPermissionChange &&
+            geolocationProvider &&
+            "permissions" in navigator
+        ) {
+            navigator.permissions
+                .query({ name: "geolocation" })
+                .then((result) => {
+                    permission = result;
+                    permission.onchange = () => {
+                        setPermissionState(permission.state);
+                    };
+                });
+        }
+
+        return () => {
+            if (permission) {
+                permission.onchange = null;
+            }
+        };
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
         if (!suppressLocationOnMount) {
             getPosition();
         }
@@ -188,7 +222,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
                 geolocationProvider?.clearWatch(watchId.current);
             }
         };
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [permissionState]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return {
         getPosition,
