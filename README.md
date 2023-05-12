@@ -111,6 +111,7 @@ The `useGeolocated` hook takes optional configuration parameter:
     suppressLocationOnMount: false,
     geolocationProvider: navigator.geolocation,
     isOptimisticGeolocationEnabled: true,
+    watchLocationPermissionChange: false,
     onError,
     onSuccess,
 }
@@ -127,6 +128,8 @@ The location is obtained when the component mounts by default. If you want to pr
 The `geolocationProvider` allows to specify alternative source of the geolocation API. This was added mainly for testing purposes, however feel free to use it if need be.
 
 The `isOptimisticGeolocationEnabled` allows you to set the default value of `isGeolocationEnabled`. By default it is `true`, which means `isGeolocationEnabled` will be `true` on first render. There may be cases where you don't want to assume that the user will give permission, ie you want the first value to for `isGeolocationEnabled` to be `false`. In that case, you can set `isOptimisticGeolocationEnabled` to `false`.
+
+The `watchLocationPermissionChange` allows you to watch for changes in the geolocation permissions on browsers that support the permissions API. When set to `true`, the hook will set a watch on the geolocation permission so that when this permission changes, the location will be obtained again unless the `suppressLocationOnMount` is also set to `true`.
 
 The `onError` callback is called when the geolocation query fails or when the time for the user decision passes.
 The `onSuccess` is called when the geolocation query succeeds.
