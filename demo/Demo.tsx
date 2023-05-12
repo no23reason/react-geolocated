@@ -25,6 +25,7 @@ export const Demo = () => {
             enableHighAccuracy: false,
         },
         userDecisionTimeout: 5000,
+        watchLocationPermissionChange: true,
     });
 
     return (
