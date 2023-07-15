@@ -103,7 +103,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
 
     const userDecisionTimeoutId = useRef(0);
     const isCurrentlyMounted = useRef(true);
-    const watchId = useRef<number | void>(0);
+    const watchId = useRef<number>(0);
 
     const [isGeolocationEnabled, setIsGeolocationEnabled] = useState(
         isOptimisticGeolocationEnabled,
@@ -160,23 +160,25 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
             throw new Error("The provided geolocation provider is invalid");
         }
 
-        const funcPosition = (
-            watchPosition
-                ? geolocationProvider.watchPosition
-                : geolocationProvider.getCurrentPosition
-        ).bind(geolocationProvider);
-
         if (userDecisionTimeout) {
             userDecisionTimeoutId.current = window.setTimeout(() => {
                 handlePositionError();
             }, userDecisionTimeout);
         }
 
-        watchId.current = funcPosition(
-            handlePositionSuccess,
-            handlePositionError,
-            positionOptions,
-        );
+        if (watchPosition) {
+            watchId.current = geolocationProvider.watchPosition(
+                handlePositionSuccess,
+                handlePositionError,
+                positionOptions,
+            );
+        } else {
+            geolocationProvider.getCurrentPosition(
+                handlePositionSuccess,
+                handlePositionError,
+                positionOptions,
+            );
+        }
     }, [
         geolocationProvider,
         watchPosition,
@@ -201,6 +203,9 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
                     permission.onchange = () => {
                         setPermissionState(permission.state);
                     };
+                })
+                .catch((e) => {
+                    console.error("Error updating the permissions", e);
                 });
         }
 
