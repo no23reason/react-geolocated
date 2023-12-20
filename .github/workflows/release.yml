@@ -15,9 +15,9 @@ jobs:
         with:
           node-version-file: .nvmrc
       - name: Install dependencies
-        run: yarn install
+        run: npm install
       - name: Build
-        run: yarn dist
+        run: npm run dist
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
