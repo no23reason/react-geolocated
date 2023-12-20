@@ -6,7 +6,7 @@ export const DemoPage = () => {
         <article className="p-8 bg-slate-800 min-h-screen text-slate-200 max-w-3xl mx-auto">
             <h1 className="text-3xl font-bold my-4">react-geolocated</h1>
             <p>
-                React.js Higher-Order Component for using{" "}
+                React.js hook for using{" "}
                 <a
                     className="text-sky-400 hover:underline"
                     href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation"
@@ -23,7 +23,7 @@ export const DemoPage = () => {
                 >
                     configurable
                 </a>{" "}
-                Higher-Order Component that makes using the Geolocation API
+                React Hook that makes using the Geolocation API
                 easy, abstracting away some browser-specific quirks (differences
                 on how they handle permissions for example).
             </p>
