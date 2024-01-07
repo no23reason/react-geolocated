@@ -19,12 +19,12 @@ export interface GeolocatedConfig {
      */
     geolocationProvider?: Geolocation;
     /**
-     * If set to true, the component does not query the Geolocation API on mount. You must use the getLocation method yourself.
+     * If set to true, the hook does not query the Geolocation API on mount. You must use the getLocation method yourself.
      * @default false
      */
     suppressLocationOnMount?: boolean;
     /**
-     * If set to true, the component watches for position changes periodically.
+     * If set to true, the hook watches for position changes periodically.
      * @default false
      */
     watchPosition?: boolean;
@@ -34,7 +34,7 @@ export interface GeolocatedConfig {
      */
     isOptimisticGeolocationEnabled?: boolean;
     /**
-     * If set to true, the component watches for location permission changes.
+     * If set to true, the hook watches for location permission changes.
      * @default false
      */
     watchLocationPermissionChange?: boolean;

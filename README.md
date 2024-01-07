@@ -119,11 +119,11 @@ The `useGeolocated` hook takes optional configuration parameter:
 
 The `positionOptions` object corresponds to the [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) of the Geolocation API.
 
-By default the component only sets position once. To watch the user's position and provide live updates to position, set `watchPosition = true`. The geolocation event handler is unregistered when the component unmounts.
+By default the hook only sets position once. To watch the user's position and provide live updates to position, set `watchPosition = true`. The geolocation event handler is unregistered when the hook unmounts.
 
 If set, the `userDecisionTimeout` determines how much time (in milliseconds) we give the user to make the decision whether to allow to share their location or not. In Firefox, if the user declines to use their location, the Geolocation API call does not end with an error. Therefore we want to fallback to the error state if the user declines and the API does not tell us.
 
-The location is obtained when the component mounts by default. If you want to prevent this and get the location later, set the `suppressLocationOnMount` to `true` and use the `getPosition` function returned by the hook to trigger the geolocation query manually.
+The location is obtained when the hook mounts by default. If you want to prevent this and get the location later, set the `suppressLocationOnMount` to `true` and use the `getPosition` function returned by the hook to trigger the geolocation query manually.
 
 The `geolocationProvider` allows to specify alternative source of the geolocation API. This was added mainly for testing purposes, however feel free to use it if need be.
 
