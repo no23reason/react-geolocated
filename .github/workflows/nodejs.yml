@@ -11,8 +11,8 @@ jobs:
       with:
         node-version-file: .nvmrc
     - name: Install dependencies
-      run: yarn install
+      run: npm install
     - name: Build
-      run: yarn dist
+      run: npm run dist
     - name: Test
-      run: yarn test
+      run: npm run test

@@ -63,7 +63,6 @@
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "autoprefixer": "^10.4.2",
-        "cz-conventional-changelog": "^3.0.2",
         "eslint": "^8.7.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-prettier": "^5.0.0",
@@ -79,14 +78,9 @@
         "react-dom": "^18.1.0",
         "react-github-corner": "^2.1.0",
         "rimraf": "^5.0.1",
-        "semantic-release": "^21.0.7",
+        "semantic-release": "^22.0.12",
         "tailwindcss": "^3.0.15",
         "ts-jest": "^29.0.3",
         "typescript": "^5.0.3"
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
     }
 }

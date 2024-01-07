@@ -23,7 +23,7 @@ jobs:
         with:
           node-version-file: .nvmrc
       - name: Install dependencies
-        run: yarn install
+        run: npm install
       - name: Build pages
         run: "npm run docs:build"
       - name: Upload artifact
