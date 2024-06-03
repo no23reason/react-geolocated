@@ -72,7 +72,7 @@
         "jest-environment-jsdom": "^29.2.2",
         "parcel": "^2.9.0",
         "postcss": "^8.4.5",
-        "prettier": "~3.2.2",
+        "prettier": "~3.3.0",
         "pretty-quick": "^4.0.0",
         "process": "^0.11.10",
         "react": "^18.1.0",
