@@ -23,6 +23,9 @@
     "main": "dist-modules",
     "typings": "./dist-modules/index.d.ts",
     "sideEffects": false,
+    "publishConfig": {
+        "provenance": true
+    },
     "scripts": {
         "dist": "rimraf ./dist-modules && tsc -p .",
         "prepublishOnly": "npm run dist",
