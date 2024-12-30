@@ -22,17 +22,30 @@ const Simple = (props: { config: GeolocatedConfig; message?: string }) => {
     }
 };
 
+const mockRawCoords: Omit<GeolocationPosition["coords"], "toJSON"> = {
+    latitude: 50,
+    longitude: 20,
+    accuracy: 0.5,
+    altitude: 200,
+    altitudeAccuracy: 10,
+    heading: 0,
+    speed: 0,
+};
+
 const mockPosition: GeolocationPosition = {
     coords: {
-        latitude: 50,
-        longitude: 20,
-        accuracy: 0.5,
-        altitude: 200,
-        altitudeAccuracy: 10,
-        heading: 0,
-        speed: 0,
+        ...mockRawCoords,
+        toJSON() {
+            return mockRawCoords;
+        },
     },
     timestamp: 1234,
+    toJSON() {
+        return {
+            coords: mockRawCoords,
+            timestamp: 1234,
+        };
+    },
 };
 
 const mockSuccessfulGeolocationProvider: Geolocation = {
