@@ -153,8 +153,9 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
 
     const getPosition = useCallback(() => {
         if (
-            !geolocationProvider ||
-            !geolocationProvider.getCurrentPosition ||
+            !geolocationProvider?.getCurrentPosition ||
+            // we really want to check if the watchPosition is available
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             !geolocationProvider.watchPosition
         ) {
             throw new Error("The provided geolocation provider is invalid");
@@ -189,7 +190,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
     ]);
 
     useEffect(() => {
-        let permission: PermissionStatus;
+        let permission: PermissionStatus | undefined = undefined;
 
         if (
             watchLocationPermissionChange &&
@@ -201,10 +202,12 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
                 .then((result) => {
                     permission = result;
                     permission.onchange = () => {
-                        setPermissionState(permission.state);
+                        if (permission) {
+                            setPermissionState(permission.state);
+                        }
                     };
                 })
-                .catch((e) => {
+                .catch((e: unknown) => {
                     console.error("Error updating the permissions", e);
                 });
         }

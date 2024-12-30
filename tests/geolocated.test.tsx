@@ -85,7 +85,9 @@ describe("Geolocated", () => {
             geolocationProvider: {} as Geolocation,
         };
 
-        expect(() => render(<Simple config={config} />)).toThrow();
+        expect(() => render(<Simple config={config} />)).toThrow(
+            new Error("The provided geolocation provider is invalid"),
+        );
     });
 
     it("should timeout if user decision timeout is specified", async () => {
