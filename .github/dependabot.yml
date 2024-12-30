@@ -6,12 +6,6 @@ updates:
     interval: weekly
     time: "04:00"
   open-pull-requests-limit: 10
-  groups:
-    eslint:
-      patterns:
-        - "@typescript-eslint/*"
-        - "eslint-*"
-        - "eslint"
   ignore:
   - dependency-name: gatsby-plugin-mdx
     versions:
