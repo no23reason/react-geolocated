@@ -11,3 +11,4 @@ npm-debug.log
 yarn-error.log
 .docz
 .parcel-cache
+.DS_store
