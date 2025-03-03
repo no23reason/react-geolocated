@@ -59,7 +59,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.17.0",
-        "@tailwindcss/postcss": "^4.0.7",
+        "@tailwindcss/postcss": "^4.0.9",
         "@testing-library/jest-dom": "^6.0.0",
         "@testing-library/react": "^16.0.0",
         "@types/jest": "^29.2.1",
@@ -80,9 +80,9 @@
         "react-github-corner": "^2.1.0",
         "rimraf": "^6.0.1",
         "semantic-release": "^24.0.0",
-        "tailwindcss": "^4.0.0",
+        "tailwindcss": "^4.0.9",
         "ts-jest": "^29.0.3",
-        "typescript": "5.8.2",
-        "typescript-eslint": "^8.18.2"
+        "typescript": "5.7.3",
+        "typescript-eslint": "^8.25.0"
     }
 }
