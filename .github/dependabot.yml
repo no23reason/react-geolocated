@@ -14,7 +14,21 @@ updates:
         - "eslint-*"
         - "eslint"
         - "typescript-eslint"
+    jest:
+      patterns:
+        - "@types/jest"
+        - "jest"
+        - "jest-environment-jsdom"
+        - "ts-jest"
+    react:
+      patterns:
+        - "@types/react"
+        - "react"
+        - "react-dom"
     tailwind:
       patterns:
         - "@tailwindcss/*"
         - "tailwindcss"
+    testing-library:
+      patterns:
+        - "@testing-library/*"

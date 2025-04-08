@@ -64,7 +64,6 @@
         "@testing-library/react": "^16.0.0",
         "@types/jest": "^29.2.1",
         "@types/react": "^19.0.1",
-        "@types/react-test-renderer": "^19.0.0",
         "autoprefixer": "^10.4.2",
         "eslint": "^9.20.1",
         "eslint-plugin-react-hooks": "^5.1.0",
