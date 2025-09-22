@@ -100,7 +100,6 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
         onError,
         onSuccess,
     } = config;
-
     const userDecisionTimeoutId = useRef(0);
     const isCurrentlyMounted = useRef(true);
     const watchId = useRef<number>(0);
@@ -117,6 +116,28 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
     const [permissionState, setPermissionState] = useState<
         PermissionState | undefined
     >();
+
+    const sameCoords = useCallback((a: GeolocationCoordinates | undefined, b: GeolocationCoordinates | undefined) => {
+        if (a === b) return true;
+        if (!a || !b) return false;
+        return a.accuracy === b.accuracy &&
+            a.altitude === b.altitude &&
+            a.altitudeAccuracy === b.altitudeAccuracy &&
+            a.heading === b.heading &&
+            a.latitude === b.latitude &&
+            a.longitude === b.longitude &&
+            a.speed === b.speed;
+    }, []);
+
+    const updateCoords = useCallback((next?: GeolocationCoordinates) => {
+        setCoords((prev) => {
+            if (sameCoords(prev, next)) {
+                // avoiding unnecessary re-rendering
+                return prev; 
+            }
+            return next;
+        });
+    }, [sameCoords]);
 
     const cancelUserDecisionTimeout = useCallback(() => {
         if (userDecisionTimeoutId.current) {
@@ -141,14 +162,14 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
         (position: GeolocationPosition) => {
             cancelUserDecisionTimeout();
             if (isCurrentlyMounted.current) {
-                setCoords(position.coords);
+                updateCoords(position.coords);
                 setTimestamp(position.timestamp);
                 setIsGeolocationEnabled(true);
                 setPositionError(() => undefined);
             }
             onSuccess?.(position);
         },
-        [onSuccess, cancelUserDecisionTimeout],
+        [onSuccess, cancelUserDecisionTimeout, updateCoords],
     );
 
     const getPosition = useCallback(() => {
@@ -161,7 +182,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
             throw new Error("The provided geolocation provider is invalid");
         }
 
-        if (userDecisionTimeout) {
+        if (userDecisionTimeout && permissionState !== "granted") {
             userDecisionTimeoutId.current = window.setTimeout(() => {
                 handlePositionError();
             }, userDecisionTimeout);
@@ -187,6 +208,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
         handlePositionError,
         handlePositionSuccess,
         positionOptions,
+        permissionState,
     ]);
 
     useEffect(() => {
