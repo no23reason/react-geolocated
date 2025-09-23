@@ -76,11 +76,6 @@ export interface GeolocatedResult {
      * Callback you can use to manually trigger the position query.
      */
     getPosition: () => void;
-
-    /**
-     * Callback you can use to manually trigger the position query with cached.
-     */
-    getPositionCached: (ttl: number) => void;
 }
 
 /**
@@ -216,18 +211,6 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
         permissionState,
     ]);
 
-    const getPositionCached = useCallback((cacheTTL: number = 60 * 1000) => {
-        const now = Date.now();
-
-        // If we have cached coords and a valid timestamp and it's still fresh, return early.
-        if (timestamp !== undefined && now - timestamp < cacheTTL) {
-            return;
-        }
-
-        // Call the original getPosition function
-        getPosition();
-    }, [getPosition, timestamp]);
-
     useEffect(() => {
         let permission: PermissionStatus | undefined = undefined;
 
@@ -273,7 +256,6 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
 
     return {
         getPosition,
-        getPositionCached,
         coords,
         timestamp,
         isGeolocationEnabled,
