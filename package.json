@@ -78,7 +78,7 @@
         "react-dom": "^19.0.0",
         "react-github-corner": "^2.1.0",
         "rimraf": "^6.0.1",
-        "semantic-release": "^24.0.0",
+        "semantic-release": "^25.0.1",
         "tailwindcss": "^4.0.9",
         "ts-jest": "^29.0.3",
         "typescript": "5.8.3",
