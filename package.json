@@ -81,7 +81,7 @@
         "semantic-release": "^25.0.1",
         "tailwindcss": "^4.0.9",
         "ts-jest": "^29.0.3",
-        "typescript": "5.8.3",
+        "typescript": "5.9.3",
         "typescript-eslint": "^8.25.0"
     }
 }
