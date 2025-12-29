@@ -90,7 +90,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
             timeout: Infinity,
         },
         isOptimisticGeolocationEnabled = true,
-        userDecisionTimeout = undefined,
+        userDecisionTimeout,
         suppressLocationOnMount = false,
         watchPosition = false,
         geolocationProvider = typeof navigator !== "undefined"
