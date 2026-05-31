@@ -5,11 +5,11 @@ import { DemoPage } from "./DemoPage";
 
 export const App = () => {
     return (
-        <main className="bg-slate-900 min-h-screen">
+        <main className="main">
             <DemoPage />
             <GithubCorner
-                octoColor="#0f172a"
-                bannerColor="#e2e8f0"
+                octoColor="#323232"
+                bannerColor="#ebebeb"
                 href="https://github.com/no23reason/react-geolocated"
             />
         </main>
