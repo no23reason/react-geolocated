@@ -1,1 +1,95 @@
-@import "tailwindcss";
+/* Grayscale Design palette: https://grayscale.design/app?lums=98.10,96.40,90.10,83.30,75.60,65.80,52.60,37.40,15.20,12.80,6.40,3.20&palettes=&filters=&names=&labels= */
+:root {
+  --grayscale-50: rgb(253, 253, 253);
+  --grayscale-100: rgb(251, 251, 251);
+  --grayscale-200: rgb(244, 244, 244);
+  --grayscale-300: rgb(235, 235, 235);
+  --grayscale-400: rgb(225, 225, 225);
+  --grayscale-500: rgb(212, 212, 212);
+  --grayscale-600: rgb(192, 192, 192);
+  --grayscale-700: rgb(165, 165, 165);
+  --grayscale-800: rgb(109, 109, 109);
+  --grayscale-900: rgb(100, 100, 100);
+  --grayscale-1000: rgb(72, 72, 72);
+  --grayscale-1100: rgb(50, 50, 50);
+}
+
+.shantell-sans-normal {
+  font-family: "Shantell Sans", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "BNCE" 0,
+  "INFM" 0,
+  "SPAC" 0;
+}
+
+.shantell-sans-bold {
+  font-family: "Shantell Sans", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "BNCE" 0,
+  "INFM" 0,
+  "SPAC" 0;
+}
+
+body {
+  background-color: var(--grayscale-1100);
+  color: var(--grayscale-300);
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+
+  a {
+    color: var(--grayscale-300);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: var(--grayscale-600);
+    text-decoration: none;
+  }
+}
+
+.article {
+  background-color: var(--grayscale-900);
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.demo {
+  background-color: var(--grayscale-300);
+  padding: 1rem;
+  margin: 1rem 0;
+  color: var(--grayscale-1100);
+  border-radius: 0.5rem;
+}
+
+.demo-data {
+  margin: 1rem;
+}
+
+.get-position {
+  background-color: var(--grayscale-1000);
+  color: var(--grayscale-300);
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-family: "Shantell Sans", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "BNCE" 0,
+  "INFM" 0,
+  "SPAC" 0;
+}
+
+.get-position:hover {
+  background-color: var(--grayscale-800);
+}
