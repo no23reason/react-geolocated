@@ -60,7 +60,7 @@
         "react-github-corner": "^2.1.0",
         "rimraf": "^6.0.1",
         "semantic-release": "^25.0.1",
-        "typescript": "5.8.3",
+        "typescript": "6.0.3",
         "typescript-eslint": "^8.25.0",
         "vite": "^8.1.0",
         "vitest": "^4.1.9"
