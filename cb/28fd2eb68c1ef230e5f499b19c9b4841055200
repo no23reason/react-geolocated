@@ -4,7 +4,7 @@ src/index.ts
 {
   "schema_version": "authorship/3.0.0",
   "git_ai_version": "1.6.3",
-  "base_commit_sha": "5e6ffb7c7c7fe04ef0e71c91df498324487f10ea",
+  "base_commit_sha": "cb28fd2eb68c1ef230e5f499b19c9b4841055200",
   "prompts": {},
   "sessions": {
     "s_2efba4a015b212": {
