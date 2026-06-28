@@ -1,6 +1,6 @@
 import React from "react";
 import { act, render } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import { describe, it, expect, beforeAll, afterAll, vi } from "vitest";
 
 import { useGeolocated, GeolocatedConfig } from "../src";
 
@@ -73,15 +73,15 @@ const mockNoopGeolocationProvider = {
     },
 };
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 describe("Geolocated", () => {
     beforeAll(() => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
     });
 
     afterAll(() => {
-        jest.useRealTimers();
+        vi.useRealTimers();
     });
 
     it("should inject the location", async () => {
@@ -114,7 +114,7 @@ describe("Geolocated", () => {
         expect(await findByText("Getting geolocation")).toBeInTheDocument();
 
         act(() => {
-            jest.advanceTimersByTime(100);
+            vi.advanceTimersByTime(100);
         });
 
         expect(await findByText("Geolocation NOT enabled")).toBeInTheDocument();
@@ -129,7 +129,7 @@ describe("Geolocated", () => {
         const { findByText } = render(<Simple config={config} />);
 
         act(() => {
-            jest.advanceTimersByTime(200);
+            vi.advanceTimersByTime(200);
         });
 
         expect(await findByText("Location: 50, 20")).toBeInTheDocument();

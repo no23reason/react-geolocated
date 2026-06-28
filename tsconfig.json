@@ -9,7 +9,7 @@
         "isolatedModules": true,
         "target": "ES6",
         "module": "CommonJS",
-        "lib": ["DOM"]
+        "lib": ["DOM", "ES2015"]
     },
     "files": ["./src/index.ts"]
 }
