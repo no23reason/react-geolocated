@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { vi } from "vitest";
 
 // @testing-library detects installed fake timers via a global `jest`.

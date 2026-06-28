@@ -22,6 +22,9 @@
     "license": "MIT",
     "main": "dist-modules",
     "typings": "./dist-modules/index.d.ts",
+    "files": [
+        "dist-modules"
+    ],
     "sideEffects": false,
     "publishConfig": {
         "provenance": true
@@ -29,8 +32,6 @@
     "scripts": {
         "dist": "rimraf ./dist-modules && tsc -p .",
         "prepublishOnly": "npm run dist",
-        "prepush": "npm run test:lint && npm run test:js",
-        "precommit": "pretty-quick --staged",
         "semantic-release": "semantic-release",
         "start": "npm run docs:dev",
         "test:js": "vitest run --coverage",
@@ -45,7 +46,6 @@
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
-        "@testing-library/jest-dom": "^6.0.0",
         "@testing-library/react": "^16.0.0",
         "@types/react": "^19.0.1",
         "@vitejs/plugin-react": "^6.0.3",
@@ -54,7 +54,6 @@
         "eslint-plugin-react-hooks": "^7.0.0",
         "jsdom": "^29.1.1",
         "prettier": "~3.8.0",
-        "pretty-quick": "^4.0.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "react-github-corner": "^2.1.0",
