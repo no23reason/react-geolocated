@@ -90,7 +90,7 @@ describe("Geolocated", () => {
         };
 
         const { findByText } = render(<Simple config={config} />);
-        expect(await findByText("Location: 50, 20")).toBeInTheDocument();
+        expect(await findByText("Location: 50, 20")).toBeTruthy();
     });
 
     it("should throw on invalid geolocation provider", () => {
@@ -111,13 +111,13 @@ describe("Geolocated", () => {
 
         const { findByText } = render(<Simple config={config} />);
 
-        expect(await findByText("Getting geolocation")).toBeInTheDocument();
+        expect(await findByText("Getting geolocation")).toBeTruthy();
 
         act(() => {
             vi.advanceTimersByTime(100);
         });
 
-        expect(await findByText("Geolocation NOT enabled")).toBeInTheDocument();
+        expect(await findByText("Geolocation NOT enabled")).toBeTruthy();
     });
 
     it("should cancel user decision timeout on success", async () => {
@@ -132,6 +132,6 @@ describe("Geolocated", () => {
             vi.advanceTimersByTime(200);
         });
 
-        expect(await findByText("Location: 50, 20")).toBeInTheDocument();
+        expect(await findByText("Location: 50, 20")).toBeTruthy();
     });
 });
