@@ -7,5 +7,4 @@ src/
 tests/
 .*
 webpack.*
-jest.config.js
 tsconfig.json
