@@ -1,0 +1,19 @@
+src/index.ts
+  s_2efba4a015b212::t_76a5412c1d322a 3-19,141,145
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "5e6ffb7c7c7fe04ef0e71c91df498324487f10ea",
+  "prompts": {},
+  "sessions": {
+    "s_2efba4a015b212": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b808211f-8651-43eb-b8f6-c2f79ac249da",
+        "model": "unknown"
+      },
+      "human_author": "Dan Homola <dan.homola@gooddata.com>"
+    }
+  }
+}
