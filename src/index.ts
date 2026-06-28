@@ -1,5 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
+function sameCoords(
+    a: GeolocationCoordinates | undefined,
+    b: GeolocationCoordinates | undefined,
+) {
+    if (a === b) return true;
+    if (!a || !b) return false;
+    return (
+        a.accuracy === b.accuracy &&
+        a.altitude === b.altitude &&
+        a.altitudeAccuracy === b.altitudeAccuracy &&
+        a.heading === b.heading &&
+        a.latitude === b.latitude &&
+        a.longitude === b.longitude &&
+        a.speed === b.speed
+    );
+}
+
 /**
  * The configuration options.
  */
@@ -117,27 +134,15 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
         PermissionState | undefined
     >();
 
-    const sameCoords = useCallback((a: GeolocationCoordinates | undefined, b: GeolocationCoordinates | undefined) => {
-        if (a === b) return true;
-        if (!a || !b) return false;
-        return a.accuracy === b.accuracy &&
-            a.altitude === b.altitude &&
-            a.altitudeAccuracy === b.altitudeAccuracy &&
-            a.heading === b.heading &&
-            a.latitude === b.latitude &&
-            a.longitude === b.longitude &&
-            a.speed === b.speed;
-    }, []);
-
     const updateCoords = useCallback((next?: GeolocationCoordinates) => {
         setCoords((prev) => {
             if (sameCoords(prev, next)) {
                 // avoiding unnecessary re-rendering
-                return prev; 
+                return prev;
             }
             return next;
         });
-    }, [sameCoords]);
+    }, []);
 
     const cancelUserDecisionTimeout = useCallback(() => {
         if (userDecisionTimeoutId.current) {
