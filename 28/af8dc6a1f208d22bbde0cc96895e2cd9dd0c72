@@ -1,0 +1,23 @@
+package-lock.json
+  s_2efba4a015b212::t_eaa481f0a39d50 16,30,972-975,977,979-980,983-986,989-992,994,996-997,1000-1003,1006-1011,1013-1014,1017-1020,1022-1025,1027,1030-1033,1036-1037,1040-1043,1047,2083-2099,2101-2112
+package.json
+  s_2efba4a015b212::t_b349a74c6ab93f 40-41,51,65
+vite.config.ts
+  s_2efba4a015b212::t_b6fe14f6582c06 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "28af8dc6a1f208d22bbde0cc96895e2cd9dd0c72",
+  "prompts": {},
+  "sessions": {
+    "s_2efba4a015b212": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b808211f-8651-43eb-b8f6-c2f79ac249da",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Dan Homola <dan.homola@gooddata.com>"
+    }
+  }
+}
