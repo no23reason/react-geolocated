@@ -5,13 +5,13 @@ const getDirection = (degrees: number, isLongitude: boolean) =>
     degrees > 0 ? (isLongitude ? "E" : "N") : isLongitude ? "W" : "S";
 
 // adapted from http://stackoverflow.com/a/5786281/2546338
-const formatDegrees = (degrees: number, isLongitude: boolean) =>
-    `${0 | degrees}° ${
-        0 | (((degrees < 0 ? (degrees = -degrees) : degrees) % 1) * 60)
-    }' ${0 | (((degrees * 60) % 1) * 60)}" ${getDirection(
-        degrees,
-        isLongitude,
-    )}`;
+const formatDegrees = (value: number, isLongitude: boolean) => {
+    const abs = Math.abs(value);
+    const degrees = Math.trunc(value);
+    const minutes = Math.floor((abs % 1) * 60);
+    const seconds = Math.floor(((abs * 60) % 1) * 60);
+    return `${degrees}° ${minutes}' ${seconds}" ${getDirection(value, isLongitude)}`;
+};
 
 export const Demo = () => {
     const {
