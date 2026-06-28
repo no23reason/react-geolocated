@@ -1,0 +1,19 @@
+demo/Demo.tsx
+  s_2efba4a015b212::t_6fd94b6e04eae9 8-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "7c160cca2b2f58a3cb89512e6e09ea31d0e8df0a",
+  "prompts": {},
+  "sessions": {
+    "s_2efba4a015b212": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b808211f-8651-43eb-b8f6-c2f79ac249da",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Dan Homola <dan.homola@gooddata.com>"
+    }
+  }
+}
