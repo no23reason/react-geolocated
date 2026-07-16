@@ -14,12 +14,6 @@ updates:
         - "eslint-*"
         - "eslint"
         - "typescript-eslint"
-    jest:
-      patterns:
-        - "@types/jest"
-        - "jest"
-        - "jest-environment-jsdom"
-        - "ts-jest"
     react:
       patterns:
         - "@types/react"
@@ -28,3 +22,7 @@ updates:
     testing-library:
       patterns:
         - "@testing-library/*"
+    vitest:
+      patterns:
+        - "vitest"
+        - "@vitest/*"
