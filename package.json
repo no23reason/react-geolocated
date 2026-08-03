@@ -52,7 +52,7 @@
         "@vitest/coverage-v8": "^4.1.9",
         "eslint": "^10.2.1",
         "eslint-plugin-react-hooks": "^7.0.0",
-        "jsdom": "^29.1.1",
+        "jsdom": "^30.0.1",
         "prettier": "~3.9.1",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
