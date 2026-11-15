@@ -119,7 +119,9 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
     } = config;
     const userDecisionTimeoutId = useRef(0);
     const isCurrentlyMounted = useRef(true);
-    const watchId = useRef<number>(0);
+    const activeWatch = useRef<
+        { id: number; provider: Geolocation } | undefined
+    >(undefined);
 
     const [isGeolocationEnabled, setIsGeolocationEnabled] = useState(
         isOptimisticGeolocationEnabled,
@@ -147,6 +149,13 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
     const cancelUserDecisionTimeout = useCallback(() => {
         if (userDecisionTimeoutId.current) {
             window.clearTimeout(userDecisionTimeoutId.current);
+        }
+    }, []);
+
+    const clearWatch = useCallback(() => {
+        if (activeWatch.current) {
+            activeWatch.current.provider.clearWatch(activeWatch.current.id);
+            activeWatch.current = undefined;
         }
     }, []);
 
@@ -194,11 +203,13 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
         }
 
         if (watchPosition) {
-            watchId.current = geolocationProvider.watchPosition(
+            clearWatch();
+            const id = geolocationProvider.watchPosition(
                 handlePositionSuccess,
                 handlePositionError,
                 positionOptions,
             );
+            activeWatch.current = { id, provider: geolocationProvider };
         } else {
             geolocationProvider.getCurrentPosition(
                 handlePositionSuccess,
@@ -214,6 +225,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
         handlePositionSuccess,
         positionOptions,
         permissionState,
+        clearWatch,
     ]);
 
     useEffect(() => {
@@ -253,9 +265,7 @@ export function useGeolocated(config: GeolocatedConfig = {}): GeolocatedResult {
 
         return () => {
             cancelUserDecisionTimeout();
-            if (watchPosition && watchId.current) {
-                geolocationProvider?.clearWatch(watchId.current);
-            }
+            clearWatch();
         };
     }, [permissionState]); // eslint-disable-line react-hooks/exhaustive-deps
 
