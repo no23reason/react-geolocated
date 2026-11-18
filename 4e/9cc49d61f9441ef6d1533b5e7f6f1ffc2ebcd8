@@ -1,0 +1,14 @@
+.nvmrc
+  h_332e1a220049c7 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4e9cc49d61f9441ef6d1533b5e7f6f1ffc2ebcd8",
+  "prompts": {},
+  "humans": {
+    "h_332e1a220049c7": {
+      "author": "Dan Homola <dan.homola@gooddata.com>"
+    }
+  }
+}
