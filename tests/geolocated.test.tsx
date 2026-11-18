@@ -1,5 +1,5 @@
 import React from "react";
-import { act, render } from "@testing-library/react";
+import { act, render, renderHook } from "@testing-library/react";
 import { describe, it, expect, beforeAll, afterAll, vi } from "vitest";
 
 import { useGeolocated, GeolocatedConfig } from "../src";
@@ -76,6 +76,54 @@ const mockNoopGeolocationProvider = {
 vi.useFakeTimers();
 
 describe("Geolocated", () => {
+    it("clears the previous watch before starting a new one, including watch ID zero", () => {
+        let nextId = 0;
+        const activeWatches = new Set<number>();
+        const provider: Geolocation = {
+            getCurrentPosition: vi.fn(),
+            watchPosition: vi.fn(() => {
+                const id = nextId++;
+                activeWatches.add(id);
+                return id;
+            }),
+            clearWatch: vi.fn((id) => {
+                activeWatches.delete(id);
+            }),
+        };
+        const { result, unmount } = renderHook(() =>
+            useGeolocated({
+                geolocationProvider: provider,
+                watchPosition: true,
+            }),
+        );
+
+        expect([...activeWatches]).toEqual([0]);
+        act(() => result.current.getPosition());
+        expect(provider.clearWatch).toHaveBeenCalledWith(0);
+        expect([...activeWatches]).toEqual([1]);
+        act(() => result.current.getPosition());
+        expect([...activeWatches]).toEqual([2]);
+        unmount();
+        expect(activeWatches.size).toBe(0);
+        expect(provider.clearWatch).toHaveBeenCalledTimes(3);
+    });
+
+    it("clears watch ID zero on unmount", () => {
+        const clearWatch = vi.fn();
+        const { unmount } = renderHook(() =>
+            useGeolocated({
+                watchPosition: true,
+                geolocationProvider: {
+                    getCurrentPosition: vi.fn(),
+                    watchPosition: () => 0,
+                    clearWatch,
+                },
+            }),
+        );
+        unmount();
+        expect(clearWatch).toHaveBeenCalledWith(0);
+    });
+
     beforeAll(() => {
         vi.useFakeTimers();
     });
